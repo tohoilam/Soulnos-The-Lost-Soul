@@ -25,6 +25,7 @@ public class PlayerMovementControl : MonoBehaviour
         isGrounded = false;
         activateJump = false;
         isMovementAllowed = true;
+
         rigidbody = this.GetComponent<Rigidbody2D>();
         spriteRenderer = this.GetComponent<SpriteRenderer>();
         animator = this.GetComponent<Animator>();
@@ -92,7 +93,6 @@ public class PlayerMovementControl : MonoBehaviour
             if (((1 << collider.gameObject.layer) & groundLayerMask) != 0)
             {
                 isGrounded = true;
-                Debug.Log(isGrounded);
                 animator.SetBool("IsJumping", false);
             }
         }

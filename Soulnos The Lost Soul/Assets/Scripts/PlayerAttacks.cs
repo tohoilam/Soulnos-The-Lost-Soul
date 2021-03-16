@@ -2,21 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum AttackMode
-{
-    Sword,
-    FireBall,
-}
+//public enum AttackMode
+//{
+//    Sword,
+//    FireBall,
+//}
 
 public class PlayerAttacks : MonoBehaviour
 {
+    public enum AttackMode { Sword, FireBall };
     public AttackMode initialAttackMode;
+    public bool isAttackDirectionRight;
     //public bool killAttackAnimation;
 
     private PlayerMovementControl playerMovementControlScript;
     private AttackMode currentAttackMode;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
+    public bool isSwordTriggerAllowed;
 
 
     // Start is called before the first frame update
@@ -26,6 +29,7 @@ public class PlayerAttacks : MonoBehaviour
         animator = this.GetComponent<Animator>();
         spriteRenderer = this.GetComponent<SpriteRenderer>();
         playerMovementControlScript = this.GetComponent<PlayerMovementControl>();
+        isSwordTriggerAllowed = false;
     }
 
     // Update is called once per frame
@@ -34,14 +38,15 @@ public class PlayerAttacks : MonoBehaviour
         if (Input.GetButtonDown("BasicAttack"))
         {
             playerMovementControlScript.isMovementAllowed = false;
-            Debug.Log("Disabled Movement");
             if (Input.GetAxis("BasicAttack") > 0)
             {
                 spriteRenderer.flipX = false;
+                isAttackDirectionRight = true;
             }
             else if (Input.GetAxis("BasicAttack") < 0)
             {
                 spriteRenderer.flipX = true;
+                isAttackDirectionRight = false;
             }
 
             switch (currentAttackMode)
@@ -52,20 +57,10 @@ public class PlayerAttacks : MonoBehaviour
             }
             
         }
-
-        //if (killAttackAnimation)
-        //{
-        //    Debug.Log("Hi");
-        //    FinishAttackAnimation();
-        //    playerMovementControlScript.isMovementAllowed = true;
-        //    //Debug.Log("Enabled Movement");
-        //    killAttackAnimation = false;
-        //}
     }
 
     public void FinishAttackAnimation()
     {
-        Debug.Log("Runned");
         switch (currentAttackMode)
         {
             case AttackMode.Sword:
@@ -73,5 +68,10 @@ public class PlayerAttacks : MonoBehaviour
                 break;
         }
         playerMovementControlScript.isMovementAllowed = true;
+    }
+
+    public void TriggerSowrdCollision()
+    {
+        isSwordTriggerAllowed = true;
     }
 }
