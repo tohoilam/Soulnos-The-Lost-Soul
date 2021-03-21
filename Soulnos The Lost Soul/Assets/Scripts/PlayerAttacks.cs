@@ -69,13 +69,29 @@ public class PlayerAttacks : MonoBehaviour
         playerMovementControlScript.isMovementAllowed = true;
     }
 
+    public void SowrdFinishAttackAnimation()
+    {
+        playerMovementControlScript.isMovementAllowed = true;
+        GameObject.Find("RealityPlayerSwordAttackRight").GetComponent<CircleCollider2D>().enabled = false;
+        GameObject.Find("VoidPlayerSwordAttackRight").GetComponent<CircleCollider2D>().enabled = false;
+        GameObject.Find("RealityPlayerSwordAttackLeft").GetComponent<CircleCollider2D>().enabled = false;
+        GameObject.Find("VoidPlayerSwordAttackLeft").GetComponent<CircleCollider2D>().enabled = false;
+    }
+
     public void TriggerSowrdCollision()
     {
         isSwordTriggerAllowed = true;
-        GameObject.Find("RealityPlayerSwordAttackRight").GetComponent<CircleCollider2D>().enabled = true;
-        GameObject.Find("RealityPlayerSwordAttackLeft").GetComponent<CircleCollider2D>().enabled = true;
-        //this.gameObject.transform.GetChild(1).GetComponent<CircleCollider2D>().enabled = true;
-        //this.gameObject.transform.GetChild(2).GetComponent<CircleCollider2D>().enabled = true;
+        if (isAttackDirectionRight)
+        {
+            GameObject.Find("RealityPlayerSwordAttackRight").GetComponent<CircleCollider2D>().enabled = true;
+            GameObject.Find("VoidPlayerSwordAttackRight").GetComponent<CircleCollider2D>().enabled = true;
+        }
+        else
+        {
+            GameObject.Find("RealityPlayerSwordAttackLeft").GetComponent<CircleCollider2D>().enabled = true;
+            GameObject.Find("VoidPlayerSwordAttackLeft").GetComponent<CircleCollider2D>().enabled = true;
+        }
+        
     }
 
     public AttackModeClass.AttackMode getCurrentAttackMode()

@@ -8,6 +8,11 @@ public class EnemiesTrigger : MonoBehaviour
     public GameObject realityPlayerObject;
     public GameObject voidPlayerObject;
 
+    private GameObject realityPlayerSwordAttackRight;
+    private GameObject realityPlayerSwordAttackLeft;
+    private GameObject voidPlayerSwordAttackRight;
+    private GameObject voidPlayerSwordAttackLeft;
+
     private Animator animator;
 
 
@@ -15,6 +20,10 @@ public class EnemiesTrigger : MonoBehaviour
     void Start()
     {
         animator = this.transform.parent.GetComponent<Animator>();
+        realityPlayerSwordAttackRight = GameObject.Find("RealityPlayerSwordAttackRight");
+        realityPlayerSwordAttackLeft = GameObject.Find("RealityPlayerSwordAttackLeft");
+        voidPlayerSwordAttackRight = GameObject.Find("VoidPlayerSwordAttackRight");
+        voidPlayerSwordAttackLeft = GameObject.Find("VoidPlayerSwordAttackLeft");
     }
 
     // Update is called once per frame
@@ -29,21 +38,21 @@ public class EnemiesTrigger : MonoBehaviour
         {
             Debug.Log("Hurt");
             animator.SetTrigger("IsHurt");
-            if (collision.gameObject == realityPlayerObject.transform.GetChild(1))
+            if (collision.gameObject == realityPlayerSwordAttackRight)
             {
-                GameObject.Find("RealityPlayerSwordAttackRight").GetComponent<CircleCollider2D>().enabled = false;
+                realityPlayerSwordAttackRight.GetComponent<CircleCollider2D>().enabled = false;
             }
-            else if (collision.gameObject == realityPlayerObject.transform.GetChild(2))
+            else if (collision.gameObject == realityPlayerSwordAttackLeft)
             {
-                GameObject.Find("RealityPlayerSwordAttackLeft").GetComponent<CircleCollider2D>().enabled = false;
+                realityPlayerSwordAttackLeft.GetComponent<CircleCollider2D>().enabled = false;
             }
-            else if (collision.gameObject == voidPlayerObject.transform.GetChild(1))
+            else if (collision.gameObject == voidPlayerSwordAttackRight)
             {
-                voidPlayerObject.transform.GetChild(1).GetComponent<CircleCollider2D>().enabled = false;
+                voidPlayerSwordAttackRight.GetComponent<CircleCollider2D>().enabled = false;
             }
-            else if (collision.gameObject == voidPlayerObject.transform.GetChild(2))
+            else if (collision.gameObject == voidPlayerSwordAttackLeft)
             {
-                voidPlayerObject.transform.GetChild(2).GetComponent<CircleCollider2D>().enabled = false;
+                voidPlayerSwordAttackLeft.GetComponent<CircleCollider2D>().enabled = false;
             }
         }
         
