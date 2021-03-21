@@ -13,6 +13,7 @@ public class Fireball : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         positiveDirection = GameObject.Find("RealityPlayer").GetComponent<PlayerAttacks>().isAttackDirectionRight;
 
         direction = (positiveDirection) ? 1 : -1;
@@ -29,5 +30,10 @@ public class Fireball : MonoBehaviour
     void Update()
     {
         //this.transform.position = new Vector2(Time.deltaTime * direction * speed, 0.0f);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Destroy(gameObject);
     }
 }

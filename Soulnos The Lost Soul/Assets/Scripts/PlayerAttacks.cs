@@ -10,13 +10,13 @@ using UnityEngine;
 
 public class PlayerAttacks : MonoBehaviour
 {
-    public enum AttackMode { Sword, FireBall };
-    public AttackMode initialAttackMode;
+    //public enum AttackMode { Sword, FireBall };
+    public AttackModeClass.AttackMode initialAttackMode;
     public bool isAttackDirectionRight;
     //public bool killAttackAnimation;
 
     private PlayerMovementControl playerMovementControlScript;
-    private AttackMode currentAttackMode;
+    private AttackModeClass.AttackMode currentAttackMode;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
     public bool isSwordTriggerAllowed;
@@ -30,6 +30,8 @@ public class PlayerAttacks : MonoBehaviour
         spriteRenderer = this.GetComponent<SpriteRenderer>();
         playerMovementControlScript = this.GetComponent<PlayerMovementControl>();
         isSwordTriggerAllowed = false;
+        GameObject.Find("RealityPlayerSwordAttackRight").GetComponent<CircleCollider2D>().enabled = false;
+        GameObject.Find("RealityPlayerSwordAttackLeft").GetComponent<CircleCollider2D>().enabled = false;
     }
 
     // Update is called once per frame
@@ -51,8 +53,11 @@ public class PlayerAttacks : MonoBehaviour
 
             switch (currentAttackMode)
             {
-                case AttackMode.Sword:
-                    animator.SetBool("IsSwordBasic", true);
+                case AttackModeClass.AttackMode.Sword:
+                    animator.SetTrigger("IsSwordBasic");
+                    break;
+                case AttackModeClass.AttackMode.FireBall:
+                    animator.SetTrigger("IsFireCasting");
                     break;
             }
             
@@ -61,17 +66,25 @@ public class PlayerAttacks : MonoBehaviour
 
     public void FinishAttackAnimation()
     {
-        switch (currentAttackMode)
-        {
-            case AttackMode.Sword:
-                animator.SetBool("IsSwordBasic", false);
-                break;
-        }
         playerMovementControlScript.isMovementAllowed = true;
     }
 
     public void TriggerSowrdCollision()
     {
         isSwordTriggerAllowed = true;
+        GameObject.Find("RealityPlayerSwordAttackRight").GetComponent<CircleCollider2D>().enabled = true;
+        GameObject.Find("RealityPlayerSwordAttackLeft").GetComponent<CircleCollider2D>().enabled = true;
+        //this.gameObject.transform.GetChild(1).GetComponent<CircleCollider2D>().enabled = true;
+        //this.gameObject.transform.GetChild(2).GetComponent<CircleCollider2D>().enabled = true;
+    }
+
+    public AttackModeClass.AttackMode getCurrentAttackMode()
+    {
+        return this.currentAttackMode;
+    }
+
+    public void setCurrentAttackMode(AttackModeClass.AttackMode newAttackMode)
+    {
+        this.currentAttackMode = newAttackMode;
     }
 }
