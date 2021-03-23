@@ -67,6 +67,7 @@ public class PlayerMovementControl : MonoBehaviour
                 activateJump = true;
             }
         }
+        Debug.Log(isGrounded);
         
 
         animator.SetFloat("Speed", Mathf.Abs(rigidbody.velocity.x));
@@ -88,15 +89,14 @@ public class PlayerMovementControl : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("Can Jump");
-        if (collider != null)
-        {
-            if (((1 << collider.gameObject.layer) & groundLayerMask) != 0)
-            {
+        //if (collider != null)
+        //{
+        //    if (((1 << collider.gameObject.layer) & groundLayerMask) != 0)
+        //    {
                 isGrounded = true;
                 animator.SetBool("IsJumping", false);
-            }
-        }
+        //    }
+        //}
     }
 
     private void OnTriggerExit2D(Collider2D collider)
@@ -106,6 +106,11 @@ public class PlayerMovementControl : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        //Debug.Log("Colliding");
+        if (!isGrounded)
+        {
+            isGrounded = true;
+            animator.SetBool("IsJumping", false);
+        }
+        
     }
 }
