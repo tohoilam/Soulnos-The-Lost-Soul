@@ -1033,8 +1033,9 @@ GameObject:
   - component: {fileID: 269266624}
   - component: {fileID: 269266627}
   - component: {fileID: 269266628}
+  - component: {fileID: 269266629}
   m_Layer: 10
-  m_Name: DragonWarrior
+  m_Name: RunningDragonWarrior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1048,7 +1049,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 269266622}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.33, y: 1.05, z: 0}
+  m_LocalPosition: {x: 0.44, y: 1.04, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 1330757696}
@@ -1086,7 +1087,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 269266622}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e584e86544075424bbe84f377f15cbb7, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -1133,7 +1134,7 @@ SpriteRenderer:
   m_SortingLayerID: -631675053
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 20daa800a641d9e4cae18a06630db1ef, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 98c5ac8072bb34448b13482b69c7a0b3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2091,7 +2092,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 912021568}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0537, y: 0.1953, z: 50}
+  m_LocalPosition: {x: -0.09, y: 0.23, z: 50}
   m_LocalScale: {x: 0.36510992, y: 0.33749467, z: 0.14203171}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2788,7 +2789,7 @@ GameObject:
   - component: {fileID: 1330757697}
   m_Layer: 10
   m_Name: GroundCheck
-  m_TagString: Untagged
+  m_TagString: Dragon Warrior Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3556,6 +3557,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0
+
 --- !u!1 &2020428205
 GameObject:
   m_ObjectHideFlags: 0
