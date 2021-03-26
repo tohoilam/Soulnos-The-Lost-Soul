@@ -13,6 +13,8 @@ public class PlayerAttacks : MonoBehaviour
     //public enum AttackMode { Sword, FireBall };
     public AttackModeClass.AttackMode initialAttackMode;
     public bool isAttackDirectionRight;
+    public bool disableDuration;
+    public GameObject fireball;
     //public bool killAttackAnimation;
 
     private PlayerMovementControl playerMovementControlScript;
@@ -20,6 +22,8 @@ public class PlayerAttacks : MonoBehaviour
     private Animator animator;
     private SpriteRenderer spriteRenderer;
     public bool isSwordTriggerAllowed;
+    private bool isVoid;
+    private float rangeCastOffset;
 
 
     // Start is called before the first frame update
@@ -32,6 +36,9 @@ public class PlayerAttacks : MonoBehaviour
         isSwordTriggerAllowed = false;
         GameObject.Find("RealityPlayerSwordAttackRight").GetComponent<CircleCollider2D>().enabled = false;
         GameObject.Find("RealityPlayerSwordAttackLeft").GetComponent<CircleCollider2D>().enabled = false;
+        isVoid = playerMovementControlScript.negativeGravity;
+        rangeCastOffset = isVoid ? 0.6f : 0.0f;
+
     }
 
     // Update is called once per frame
@@ -58,6 +65,8 @@ public class PlayerAttacks : MonoBehaviour
                     break;
                 case AttackModeClass.AttackMode.FireBall:
                     animator.SetTrigger("IsFireCasting");
+                    Debug.Log(rangeCastOffset);
+                    Instantiate(fireball, this.transform.position + new Vector3(0, -0.3f + rangeCastOffset, 0), Quaternion.identity);
                     break;
             }
             
