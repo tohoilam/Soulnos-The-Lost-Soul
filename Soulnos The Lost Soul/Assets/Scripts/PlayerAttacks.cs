@@ -15,9 +15,11 @@ public class PlayerAttacks : MonoBehaviour
     public bool isAttackDirectionRight;
     public bool disableDuration;
     public GameObject fireball;
+    public GameObject fireballAbilityObject;
     //public bool killAttackAnimation;
 
     private PlayerMovementControl playerMovementControlScript;
+    private PlayerStatistics playerStatistics;
     private AttackModeClass.AttackMode currentAttackMode;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
@@ -27,6 +29,7 @@ public class PlayerAttacks : MonoBehaviour
     private float basicAttackCooldownDuration;
     private float attackTime;
     private bool isAttackAllowed;
+    public bool isPowerUpAttack;
 
 
     // Start is called before the first frame update
@@ -36,6 +39,7 @@ public class PlayerAttacks : MonoBehaviour
         animator = this.GetComponent<Animator>();
         spriteRenderer = this.GetComponent<SpriteRenderer>();
         playerMovementControlScript = this.GetComponent<PlayerMovementControl>();
+        playerStatistics = this.GetComponent<PlayerStatistics>();
         isSwordTriggerAllowed = false;
         isAttackAllowed = true;
         GameObject.Find("RealityPlayerSwordAttackRight").GetComponent<CircleCollider2D>().enabled = false;
@@ -44,6 +48,7 @@ public class PlayerAttacks : MonoBehaviour
         rangeCastOffset = isVoid ? 0.6f : 0.0f;
         basicAttackCooldownDuration = 0.6f;
         attackTime = -basicAttackCooldownDuration;
+        isPowerUpAttack = false;
 
     }
 
@@ -54,12 +59,18 @@ public class PlayerAttacks : MonoBehaviour
         {
             isAttackAllowed = true;
         }
-        Debug.Log(isAttackAllowed);
-        //Debug.Log(basicAttackCooldownCountdown);
+
+        if (Input.GetButtonDown("PowerUpAttack"))
+        {
+            if (playerStatistics.IsFireballAbilityCastingAvailable())
+            {
+                isPowerUpAttack = true;
+            }
+            
+        }
 
         if (isAttackAllowed)
         {
-            
             if (Input.GetButtonDown("BasicAttack"))
             {
                 playerMovementControlScript.isMovementAllowed = false;
@@ -83,7 +94,17 @@ public class PlayerAttacks : MonoBehaviour
                         break;
                     case AttackModeClass.AttackMode.FireBall:
                         animator.SetTrigger("IsFireCasting");
-                        Instantiate(fireball, this.transform.position + new Vector3(0, -0.3f + rangeCastOffset, 0), Quaternion.identity);
+                        if (isPowerUpAttack)
+                        {
+                            Instantiate(fireballAbilityObject, this.transform.position + new Vector3(0, -0.3f + rangeCastOffset, 0), Quaternion.identity);
+                            playerStatistics.CastFireballAbility();
+                            isPowerUpAttack = false;
+                        }
+                        else
+                        {
+                            Instantiate(fireball, this.transform.position + new Vector3(0, -0.3f + rangeCastOffset, 0), Quaternion.identity);
+                        }
+                        
                         break;
                 }
             

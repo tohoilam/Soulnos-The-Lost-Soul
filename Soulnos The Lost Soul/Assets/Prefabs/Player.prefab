@@ -15,8 +15,9 @@ GameObject:
   - component: {fileID: 5240862342891511388}
   - component: {fileID: 5240862342891511385}
   - component: {fileID: 5240862342891511389}
+  - component: {fileID: 4748582508373882820}
   m_Layer: 9
-  m_Name: RealityPlayer
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -180,8 +181,21 @@ MonoBehaviour:
   initialAttackMode: 0
   isAttackDirectionRight: 0
   disableDuration: 0
-  fireball: {fileID: 3910527186504480563, guid: 065ece0d50e17474396dc08dad964828, type: 3}
+  fireball: {fileID: 2472373367754003698, guid: 29178e460c1e04034a11722bebdc4bf8, type: 3}
+  fireballAbilityObject: {fileID: 2686166422862481970, guid: 8dbd394f2bbde493bb9f3997342feed0, type: 3}
   isSwordTriggerAllowed: 0
+--- !u!114 &4748582508373882820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5240862342891511382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 587d726255f6c40c89cdffa2fb87beac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5240862342956358331
 GameObject:
   m_ObjectHideFlags: 0

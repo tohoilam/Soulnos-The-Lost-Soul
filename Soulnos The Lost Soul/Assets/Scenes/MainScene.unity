@@ -2247,6 +2247,10 @@ PrefabInstance:
       value: 0.52
       objectReference: {fileID: 0}
     - target: {fileID: 5240862342891511389, guid: d0fb9aa71144e4239953280b45359024, type: 3}
+      propertyPath: fireball
+      value: 
+      objectReference: {fileID: 2472373367754003698, guid: 29178e460c1e04034a11722bebdc4bf8, type: 3}
+    - target: {fileID: 5240862342891511389, guid: d0fb9aa71144e4239953280b45359024, type: 3}
       propertyPath: rangeCastOffset
       value: 0.6
       objectReference: {fileID: 0}
@@ -3907,5 +3911,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5240862342891511389, guid: d0fb9aa71144e4239953280b45359024, type: 3}
+      propertyPath: fireball
+      value: 
+      objectReference: {fileID: 2472373367754003698, guid: 29178e460c1e04034a11722bebdc4bf8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0fb9aa71144e4239953280b45359024, type: 3}
