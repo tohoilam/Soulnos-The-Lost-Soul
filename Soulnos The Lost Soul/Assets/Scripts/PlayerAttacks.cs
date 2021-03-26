@@ -29,7 +29,7 @@ public class PlayerAttacks : MonoBehaviour
     private float basicAttackCooldownDuration;
     private float attackTime;
     private bool isAttackAllowed;
-    public bool isPowerUpAttack;
+    private bool isPowerUpAttack;
 
 
     // Start is called before the first frame update
