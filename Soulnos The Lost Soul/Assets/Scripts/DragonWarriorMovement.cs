@@ -11,7 +11,6 @@ public class DragonWarriorMovement : MonoBehaviour
 
     private new Rigidbody2D rigidbody;
     private SpriteRenderer spriteRenderer;
-    private bool isGrounded;
     private int gravityScale;
 
     void Start()
@@ -19,11 +18,11 @@ public class DragonWarriorMovement : MonoBehaviour
         rigidbody = this.GetComponent<Rigidbody2D>();
         spriteRenderer = this.GetComponent<SpriteRenderer>();
         spriteRenderer.flipX = false;
-        isGrounded = false;
         this.rigidbody.velocity = new Vector2(speed, rigidbody.velocity.y);
         if (negativeGravity)
         {
             gravityScale = -1;
+            this.transform.localScale = new Vector3(0.5f, -0.5f, 1);
         }
         else
         {
@@ -31,13 +30,7 @@ public class DragonWarriorMovement : MonoBehaviour
         }
         this.rigidbody.gravityScale *= gravityScale;
     }
-    void FixedUpdate()
-    {
-        if (rigidbody.velocity.y != 0)
-        {
-            isGrounded = false;
-        }
-    }
+
 
     void OnTriggerEnter2D(Collider2D obj)
     {
