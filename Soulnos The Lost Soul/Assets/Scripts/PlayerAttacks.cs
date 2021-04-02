@@ -61,9 +61,11 @@ public class PlayerAttacks : MonoBehaviour
 
         if (Input.GetButtonDown("PowerUpAttack"))
         {
-            if (playerStatistics.IsFireballAbilityCastingAvailable())
+            if (playerStatistics.IsAbilityActivatable(currentAttackMode))
             {
-                isPowerUpAttack = true;
+                //isPowerUpAttack = true;
+                playerStatistics.PowerUp(currentAttackMode);
+                animator.SetTrigger("IsCastAbility");
             }
 
         }
@@ -93,11 +95,12 @@ public class PlayerAttacks : MonoBehaviour
                         break;
                     case AttackModeClass.AttackMode.FireBall:
                         animator.SetTrigger("IsFireCasting");
-                        if (isPowerUpAttack)
+                        if (playerStatistics.GetIsPowerUpAttack(currentAttackMode))
                         {
                             Instantiate(fireballAbilityObject, this.transform.position + new Vector3(0, -0.3f + rangeCastOffset, 0), Quaternion.identity);
-                            playerStatistics.CastFireballAbility();
-                            isPowerUpAttack = false;
+                            playerStatistics.CastAbility(currentAttackMode);
+                            //isPowerUpAttack = false;
+                            playerStatistics.SetIsPowerUpAttack(currentAttackMode, false);
                         }
                         else
                         {
