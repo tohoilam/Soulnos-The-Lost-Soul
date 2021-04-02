@@ -13,13 +13,23 @@ public class PlayerAttacks : MonoBehaviour
     //public enum AttackMode { Sword, FireBall };
     public AttackModeClass.AttackMode initialAttackMode;
     public bool isAttackDirectionRight;
+    public bool disableDuration;
+    public GameObject fireball;
+    public GameObject fireballAbilityObject;
     //public bool killAttackAnimation;
 
     private PlayerMovementControl playerMovementControlScript;
+    private PlayerStatistics playerStatistics;
     private AttackModeClass.AttackMode currentAttackMode;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
     public bool isSwordTriggerAllowed;
+    private bool isVoid;
+    private float rangeCastOffset;
+    private float basicAttackCooldownDuration;
+    private float attackTime;
+    private bool isAttackAllowed;
+    private bool isPowerUpAttack;
 
 
     // Start is called before the first frame update
@@ -29,38 +39,75 @@ public class PlayerAttacks : MonoBehaviour
         animator = this.GetComponent<Animator>();
         spriteRenderer = this.GetComponent<SpriteRenderer>();
         playerMovementControlScript = this.GetComponent<PlayerMovementControl>();
+        playerStatistics = this.GetComponent<PlayerStatistics>();
         isSwordTriggerAllowed = false;
+        isAttackAllowed = true;
         GameObject.Find("RealityPlayerSwordAttackRight").GetComponent<CircleCollider2D>().enabled = false;
         GameObject.Find("RealityPlayerSwordAttackLeft").GetComponent<CircleCollider2D>().enabled = false;
+        isVoid = playerMovementControlScript.negativeGravity;
+        rangeCastOffset = isVoid ? 0.6f : 0.0f;
+        basicAttackCooldownDuration = 0.6f;
+        attackTime = -basicAttackCooldownDuration;
+        isPowerUpAttack = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("BasicAttack"))
+        if (!isAttackAllowed && Time.time > attackTime + basicAttackCooldownDuration)
         {
-            playerMovementControlScript.isMovementAllowed = false;
-            if (Input.GetAxis("BasicAttack") > 0)
+            isAttackAllowed = true;
+        }
+
+        if (Input.GetButtonDown("PowerUpAttack"))
+        {
+            if (playerStatistics.IsFireballAbilityCastingAvailable())
             {
-                spriteRenderer.flipX = false;
-                isAttackDirectionRight = true;
-            }
-            else if (Input.GetAxis("BasicAttack") < 0)
-            {
-                spriteRenderer.flipX = true;
-                isAttackDirectionRight = false;
+                isPowerUpAttack = true;
             }
 
-            switch (currentAttackMode)
+        }
+
+        if (isAttackAllowed)
+        {
+            if (Input.GetButtonDown("BasicAttack"))
             {
-                case AttackModeClass.AttackMode.Sword:
-                    animator.SetTrigger("IsSwordBasic");
-                    break;
-                case AttackModeClass.AttackMode.FireBall:
-                    animator.SetTrigger("IsFireCasting");
-                    break;
+                playerMovementControlScript.isMovementAllowed = false;
+                attackTime = Time.time;
+                isAttackAllowed = false;
+                if (Input.GetAxis("BasicAttack") > 0)
+                {
+                    spriteRenderer.flipX = false;
+                    isAttackDirectionRight = true;
+                }
+                else if (Input.GetAxis("BasicAttack") < 0)
+                {
+                    spriteRenderer.flipX = true;
+                    isAttackDirectionRight = false;
+                }
+
+                switch (currentAttackMode)
+                {
+                    case AttackModeClass.AttackMode.Sword:
+                        animator.SetTrigger("IsSwordBasic");
+                        break;
+                    case AttackModeClass.AttackMode.FireBall:
+                        animator.SetTrigger("IsFireCasting");
+                        if (isPowerUpAttack)
+                        {
+                            Instantiate(fireballAbilityObject, this.transform.position + new Vector3(0, -0.3f + rangeCastOffset, 0), Quaternion.identity);
+                            playerStatistics.CastFireballAbility();
+                            isPowerUpAttack = false;
+                        }
+                        else
+                        {
+                            Instantiate(fireball, this.transform.position + new Vector3(0, -0.3f + rangeCastOffset, 0), Quaternion.identity);
+                        }
+
+                        break;
+                }
+
             }
-            
         }
     }
 
