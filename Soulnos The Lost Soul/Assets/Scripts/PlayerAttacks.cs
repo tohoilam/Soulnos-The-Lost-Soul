@@ -91,7 +91,16 @@ public class PlayerAttacks : MonoBehaviour
                 switch (currentAttackMode)
                 {
                     case AttackModeClass.AttackMode.Sword:
-                        animator.SetTrigger("IsSwordBasic");
+                        if (playerStatistics.GetIsPowerUpAttack(currentAttackMode))
+                        {
+                            animator.SetTrigger("IsSwordAbility");
+                            playerStatistics.CastAbility(currentAttackMode);
+                        }
+                        else
+                        {
+                            animator.SetTrigger("IsSwordBasic");
+                        }
+                        
                         break;
                     case AttackModeClass.AttackMode.FireBall:
                         animator.SetTrigger("IsFireCasting");
@@ -99,8 +108,6 @@ public class PlayerAttacks : MonoBehaviour
                         {
                             Instantiate(fireballAbilityObject, this.transform.position + new Vector3(0, -0.3f + rangeCastOffset, 0), Quaternion.identity);
                             playerStatistics.CastAbility(currentAttackMode);
-                            //isPowerUpAttack = false;
-                            playerStatistics.SetIsPowerUpAttack(currentAttackMode, false);
                         }
                         else
                         {

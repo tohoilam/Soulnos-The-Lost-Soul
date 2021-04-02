@@ -97,6 +97,7 @@ public class PlayerStatistics : MonoBehaviour
         {
             this.sword.lastCastingTime = Time.time;
         }
+        this.SetIsPowerUpAttack(attackMode, false);
     }
 
     public void ActivateAbility(AttackModeClass.AttackMode attackMode)
@@ -119,6 +120,10 @@ public class PlayerStatistics : MonoBehaviour
             {
                 this.fireball.isActivatable = true;
             }
+            else
+            {
+                this.fireball.isActivatable = false;
+            }
             return this.fireball.isActivatable;
         }
         else
@@ -126,6 +131,10 @@ public class PlayerStatistics : MonoBehaviour
             if (!this.sword.isPowerUpAttack && Time.time > this.sword.lastCastingTime + this.sword.abilityCooldown)
             {
                 this.sword.isActivatable = true;
+            }
+            else
+            {
+                this.sword.isActivatable = false;
             }
             return this.sword.isActivatable;
         }
