@@ -3823,6 +3823,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5090463450298683616, guid: 4229beff1d5df3d4b87aac495d514a57, type: 3}
+      propertyPath: health
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5090463450298683621, guid: 4229beff1d5df3d4b87aac495d514a57, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: e584e86544075424bbe84f377f15cbb7, type: 2}
+    - target: {fileID: 5090463450570892080, guid: 4229beff1d5df3d4b87aac495d514a57, type: 3}
+      propertyPath: health
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5090463450570892080, guid: 4229beff1d5df3d4b87aac495d514a57, type: 3}
+      propertyPath: maxhealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5090463450570892080, guid: 4229beff1d5df3d4b87aac495d514a57, type: 3}
       propertyPath: realityPlayerObject
       value: 
@@ -3897,10 +3913,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 304868764896065050, guid: 25541274b47cd2e45a9313bf69226a52, type: 3}
+      propertyPath: m_DrawMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 304868764896065050, guid: 25541274b47cd2e45a9313bf69226a52, type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7607926657542869953, guid: 25541274b47cd2e45a9313bf69226a52, type: 3}
+      propertyPath: health
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7607926657542869953, guid: 25541274b47cd2e45a9313bf69226a52, type: 3}
+      propertyPath: maxhealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7607926657542869953, guid: 25541274b47cd2e45a9313bf69226a52, type: 3}
       propertyPath: realityPlayerObject
       value: 
       objectReference: {fileID: 11965366}
+    - target: {fileID: 7607926658511573073, guid: 25541274b47cd2e45a9313bf69226a52, type: 3}
+      propertyPath: health
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7607926658511573075, guid: 25541274b47cd2e45a9313bf69226a52, type: 3}
       propertyPath: m_Name
       value: RangedDragonWarrior

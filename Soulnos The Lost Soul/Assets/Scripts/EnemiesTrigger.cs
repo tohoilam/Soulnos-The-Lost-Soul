@@ -7,6 +7,8 @@ public class EnemiesTrigger : MonoBehaviour
     [SerializeField] public LayerMask attackLayer;
     public GameObject realityPlayerObject;
     public GameObject voidPlayerObject;
+    public float maxhealth;
+    private float health;
 
     private GameObject realityPlayerSwordAttackRight;
     private GameObject realityPlayerSwordAttackLeft;
@@ -24,6 +26,8 @@ public class EnemiesTrigger : MonoBehaviour
         realityPlayerSwordAttackLeft = GameObject.Find("RealityPlayerSwordAttackLeft");
         voidPlayerSwordAttackRight = GameObject.Find("VoidPlayerSwordAttackRight");
         voidPlayerSwordAttackLeft = GameObject.Find("VoidPlayerSwordAttackLeft");
+        health = maxhealth;
+
     }
 
     // Update is called once per frame
@@ -36,8 +40,15 @@ public class EnemiesTrigger : MonoBehaviour
     {
         if (collision.gameObject.layer == (int)Mathf.Log(attackLayer.value, 2))
         {
-            Debug.Log("Hurt");
+            health -= 1;
+            if (health <= 0)
+            {
+                animator.SetTrigger("Die");
+                Destroy(transform.parent.gameObject,0.833f);
+            }
             animator.SetTrigger("IsHurt");
+            this.transform.parent.transform.Find("EnemyHealthBar").transform.Find("EnemyHealthBar").transform.Find("Health").transform.localScale = new Vector3((health/maxhealth), 1, 1);
+            this.transform.parent.transform.Find("EnemyHealthBar").transform.Find("EnemyHealthBar").transform.Find("Health").transform.localPosition = new Vector3((1-(health / maxhealth))*-2, 0, 0);
             if (collision.gameObject == realityPlayerSwordAttackRight)
             {
                 realityPlayerSwordAttackRight.GetComponent<CircleCollider2D>().enabled = false;
