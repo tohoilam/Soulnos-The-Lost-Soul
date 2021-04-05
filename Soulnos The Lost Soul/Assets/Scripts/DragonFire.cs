@@ -22,4 +22,9 @@ public class DragonFire : MonoBehaviour
     {
         Destroy(gameObject);
     }
+    void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+
+    }
 }
