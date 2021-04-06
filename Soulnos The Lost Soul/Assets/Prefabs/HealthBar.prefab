@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 2723598194224514622}
   - component: {fileID: 2723598194224514617}
   m_Layer: 0
-  m_Name: Bars_Unity_5
+  m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 2723598195028043164}
   - component: {fileID: 2723598195028043167}
   m_Layer: 0
-  m_Name: Bars_Unity_12
+  m_Name: Cooldown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -403,7 +403,7 @@ SpriteRenderer:
   m_SortingLayer: 5
   m_SortingOrder: 6
   m_Sprite: {fileID: 21300024, guid: 34ecf51bcd3f4424eafda7dafd885bd0, type: 3}
-  m_Color: {r: 1, g: 0.99437773, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -424,7 +424,7 @@ GameObject:
   - component: {fileID: 2723598195398482861}
   - component: {fileID: 2723598195398482860}
   m_Layer: 0
-  m_Name: Bars_Unity_21 (1)
+  m_Name: CooldownBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -9,21 +9,4 @@ public class AttackModeClass : MonoBehaviour
         Sword,
         FireBall,
     }
-
-    //private AttackMode currentAttackMode;
-
-    //private void Start()
-    //{
-    //    currentAttackMode = AttackMode.Sword;
-    //}
-
-    //public AttackMode getCurrentAttackMode()
-    //{
-    //    return this.currentAttackMode;
-    //}
-
-    //public void setCurrentAttackMode(AttackMode newAttackMode)
-    //{
-    //    this.currentAttackMode = newAttackMode;
-    //}
 }

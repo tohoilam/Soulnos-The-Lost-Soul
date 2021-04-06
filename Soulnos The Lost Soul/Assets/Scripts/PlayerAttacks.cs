@@ -16,6 +16,11 @@ public class PlayerAttacks : MonoBehaviour
     public bool disableDuration;
     public GameObject fireball;
     public GameObject fireballAbilityObject;
+    public GameObject swordAbilityExplosion;
+    public GameObject swordAbilityExplosionReverse;
+    public float explosionOffsetX;
+    public float explosionOffsetY;
+    public float explosionOffsetYVoid;
     //public bool killAttackAnimation;
 
     private PlayerMovementControl playerMovementControlScript;
@@ -29,7 +34,7 @@ public class PlayerAttacks : MonoBehaviour
     private float basicAttackCooldownDuration;
     private float attackTime;
     private bool isAttackAllowed;
-    private bool isPowerUpAttack;
+    private bool isExplosionActivate;
 
 
     // Start is called before the first frame update
@@ -48,7 +53,7 @@ public class PlayerAttacks : MonoBehaviour
         rangeCastOffset = isVoid ? 0.6f : 0.0f;
         basicAttackCooldownDuration = 0.6f;
         attackTime = -basicAttackCooldownDuration;
-        isPowerUpAttack = false;
+        isExplosionActivate = false;
     }
 
     // Update is called once per frame
@@ -95,6 +100,7 @@ public class PlayerAttacks : MonoBehaviour
                         {
                             animator.SetTrigger("IsSwordAbility");
                             playerStatistics.CastAbility(currentAttackMode);
+                            isExplosionActivate = true;
                         }
                         else
                         {
@@ -148,7 +154,21 @@ public class PlayerAttacks : MonoBehaviour
             GameObject.Find("RealityPlayerSwordAttackLeft").GetComponent<CircleCollider2D>().enabled = true;
             GameObject.Find("VoidPlayerSwordAttackLeft").GetComponent<CircleCollider2D>().enabled = true;
         }
-        
+
+        if (isExplosionActivate)
+        {
+            float directionMultiplication = isAttackDirectionRight ? 1.0f : -1.0f;
+            if (isVoid)
+            {
+                Instantiate(swordAbilityExplosionReverse, this.transform.position + new Vector3(directionMultiplication * explosionOffsetX, explosionOffsetYVoid, 0), Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(swordAbilityExplosion, this.transform.position + new Vector3(directionMultiplication * explosionOffsetX, explosionOffsetY, 0), Quaternion.identity);
+            }
+            
+            isExplosionActivate = false;
+        }
     }
 
     public AttackModeClass.AttackMode getCurrentAttackMode()
@@ -159,5 +179,6 @@ public class PlayerAttacks : MonoBehaviour
     public void setCurrentAttackMode(AttackModeClass.AttackMode newAttackMode)
     {
         this.currentAttackMode = newAttackMode;
+        this.playerStatistics.SetCurrentAttackMode(currentAttackMode);
     }
 }

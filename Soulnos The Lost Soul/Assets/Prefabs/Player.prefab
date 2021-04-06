@@ -167,6 +167,9 @@ MonoBehaviour:
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 256
+  enemyAttacksMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &5240862342891511389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,6 +187,11 @@ MonoBehaviour:
   disableDuration: 0
   fireball: {fileID: 2472373367754003698, guid: 29178e460c1e04034a11722bebdc4bf8, type: 3}
   fireballAbilityObject: {fileID: 2686166422862481970, guid: 8dbd394f2bbde493bb9f3997342feed0, type: 3}
+  swordAbilityExplosion: {fileID: 4005072779636264577, guid: 63e5caeb927d14c42badc8c7d7f0823a, type: 3}
+  swordAbilityExplosionReverse: {fileID: 5879109344917526484, guid: 71c8741776076495281ff59ccc097618, type: 3}
+  explosionOffsetX: 0.94
+  explosionOffsetY: -0.18
+  explosionOffsetYVoid: 0.2
   isSwordTriggerAllowed: 0
 --- !u!114 &4748582508373882820
 MonoBehaviour:
@@ -197,6 +205,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 587d726255f6c40c89cdffa2fb87beac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 200
+  damageDealt: 40
 --- !u!1 &5240862342956358331
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,6 +592,18 @@ PrefabInstance:
     - target: {fileID: 2723598195501149929, guid: e79086c81fecc40239de87e733e0738d, type: 3}
       propertyPath: m_Name
       value: HealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 2723598195569673951, guid: e79086c81fecc40239de87e733e0738d, type: 3}
+      propertyPath: m_Color.b
+      value: 0.16470589
+      objectReference: {fileID: 0}
+    - target: {fileID: 2723598195569673951, guid: e79086c81fecc40239de87e733e0738d, type: 3}
+      propertyPath: m_Color.g
+      value: 0.16470589
+      objectReference: {fileID: 0}
+    - target: {fileID: 2723598195569673951, guid: e79086c81fecc40239de87e733e0738d, type: 3}
+      propertyPath: m_Color.r
+      value: 0.2901961
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e79086c81fecc40239de87e733e0738d, type: 3}
