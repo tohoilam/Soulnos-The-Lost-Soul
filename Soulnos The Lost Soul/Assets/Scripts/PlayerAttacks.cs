@@ -157,5 +157,6 @@ public class PlayerAttacks : MonoBehaviour
     public void setCurrentAttackMode(AttackModeClass.AttackMode newAttackMode)
     {
         this.currentAttackMode = newAttackMode;
+        this.playerStatistics.SetCurrentAttackMode(currentAttackMode);
     }
 }
