@@ -187,6 +187,9 @@ MonoBehaviour:
   disableDuration: 0
   fireball: {fileID: 2472373367754003698, guid: 29178e460c1e04034a11722bebdc4bf8, type: 3}
   fireballAbilityObject: {fileID: 2686166422862481970, guid: 8dbd394f2bbde493bb9f3997342feed0, type: 3}
+  swordAbilityExplosion: {fileID: 4005072779636264577, guid: 63e5caeb927d14c42badc8c7d7f0823a, type: 3}
+  explosionOffsetX: 0.94
+  explosionOffsetY: -0.18
   isSwordTriggerAllowed: 0
 --- !u!114 &4748582508373882820
 MonoBehaviour:

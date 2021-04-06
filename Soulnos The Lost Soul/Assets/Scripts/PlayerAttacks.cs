@@ -16,6 +16,9 @@ public class PlayerAttacks : MonoBehaviour
     public bool disableDuration;
     public GameObject fireball;
     public GameObject fireballAbilityObject;
+    public GameObject swordAbilityExplosion;
+    public float explosionOffsetX;
+    public float explosionOffsetY;
     //public bool killAttackAnimation;
 
     private PlayerMovementControl playerMovementControlScript;
@@ -29,6 +32,7 @@ public class PlayerAttacks : MonoBehaviour
     private float basicAttackCooldownDuration;
     private float attackTime;
     private bool isAttackAllowed;
+    private bool isExplosionActivate;
 
 
     // Start is called before the first frame update
@@ -47,6 +51,7 @@ public class PlayerAttacks : MonoBehaviour
         rangeCastOffset = isVoid ? 0.6f : 0.0f;
         basicAttackCooldownDuration = 0.6f;
         attackTime = -basicAttackCooldownDuration;
+        isExplosionActivate = false;
     }
 
     // Update is called once per frame
@@ -93,6 +98,7 @@ public class PlayerAttacks : MonoBehaviour
                         {
                             animator.SetTrigger("IsSwordAbility");
                             playerStatistics.CastAbility(currentAttackMode);
+                            isExplosionActivate = true;
                         }
                         else
                         {
@@ -146,7 +152,13 @@ public class PlayerAttacks : MonoBehaviour
             GameObject.Find("RealityPlayerSwordAttackLeft").GetComponent<CircleCollider2D>().enabled = true;
             GameObject.Find("VoidPlayerSwordAttackLeft").GetComponent<CircleCollider2D>().enabled = true;
         }
-        
+
+        if (isExplosionActivate)
+        {
+            float directionMultiplication = isAttackDirectionRight ? 1.0f : -1.0f;
+            Instantiate(swordAbilityExplosion, this.transform.position + new Vector3(directionMultiplication * explosionOffsetX, explosionOffsetY, 0), Quaternion.identity);
+            isExplosionActivate = false;
+        }
     }
 
     public AttackModeClass.AttackMode getCurrentAttackMode()
