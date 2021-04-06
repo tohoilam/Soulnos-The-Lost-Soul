@@ -66,7 +66,7 @@ MonoBehaviour:
     m_Bits: 128
   realityPlayerObject: {fileID: 0}
   voidPlayerObject: {fileID: 0}
-  health: 0
+  maxhealth: 0
 --- !u!50 &7607926657542869954
 Rigidbody2D:
   serializedVersion: 4
@@ -313,7 +313,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 5
 --- !u!95 &7607926658511573072
 Animator:
   serializedVersion: 3
@@ -361,7 +361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df412ba8d93b3d1468f373975c18ec7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firetime: 1000
+  firetime: 100
   negativeGravity: 0
   flipDirection: 0
   DragonFire: {fileID: 7021170232212144107, guid: 7ee38b2d98f2cf345b6c9c2060f5ed59, type: 3}

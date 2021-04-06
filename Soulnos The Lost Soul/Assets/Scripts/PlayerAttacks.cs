@@ -29,7 +29,6 @@ public class PlayerAttacks : MonoBehaviour
     private float basicAttackCooldownDuration;
     private float attackTime;
     private bool isAttackAllowed;
-    private bool isPowerUpAttack;
 
 
     // Start is called before the first frame update
@@ -48,7 +47,6 @@ public class PlayerAttacks : MonoBehaviour
         rangeCastOffset = isVoid ? 0.6f : 0.0f;
         basicAttackCooldownDuration = 0.6f;
         attackTime = -basicAttackCooldownDuration;
-        isPowerUpAttack = false;
     }
 
     // Update is called once per frame

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7021170232212144104}
   - component: {fileID: 7021170232212144105}
   - component: {fileID: 7021170232212144106}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DragonFire
   m_TagString: Untagged
   m_Icon: {fileID: 0}

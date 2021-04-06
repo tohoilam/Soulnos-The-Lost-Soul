@@ -167,6 +167,9 @@ MonoBehaviour:
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 256
+  enemyAttacksMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &5240862342891511389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,6 +200,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 587d726255f6c40c89cdffa2fb87beac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 200
+  damageDealt: 40
 --- !u!1 &5240862342956358331
 GameObject:
   m_ObjectHideFlags: 0

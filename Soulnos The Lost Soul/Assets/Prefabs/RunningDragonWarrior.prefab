@@ -245,7 +245,7 @@ MonoBehaviour:
     m_Bits: 128
   realityPlayerObject: {fileID: 0}
   voidPlayerObject: {fileID: 0}
-  health: 0
+  maxhealth: 0
 --- !u!50 &5090463450570892081
 Rigidbody2D:
   serializedVersion: 4

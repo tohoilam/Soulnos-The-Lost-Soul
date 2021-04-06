@@ -14,9 +14,14 @@ public class PlayerStatistics : MonoBehaviour
 
     AttackModeStats fireball;
     AttackModeStats sword;
-    //private float fireballAbilityCooldown;
-    //private float fireballLastCastingTime;
-    //private bool isFireballAbilityActivatable;
+
+    public float maxHealth;
+    public float damageDealt;
+
+    private float currentHealth;
+    private GameObject HealthBar;
+    private float healthBarLength;
+    private Animator animator;
 
     void Start()
     {
@@ -31,6 +36,13 @@ public class PlayerStatistics : MonoBehaviour
         sword.lastCastingTime = -15.0f;
         sword.isActivatable = true;
         sword.isPowerUpAttack = false;
+
+        animator = this.GetComponent<Animator>();
+
+        currentHealth = maxHealth;
+
+        this.HealthBar = this.transform.Find("HealthBar").transform.Find("HealthBar").transform.Find("Health").gameObject;
+        this.healthBarLength = this.HealthBar.transform.localScale.x;
     }
 
     public bool GetIsPowerUpAttack(AttackModeClass.AttackMode attackMode)
@@ -138,5 +150,28 @@ public class PlayerStatistics : MonoBehaviour
             }
             return this.sword.isActivatable;
         }
+    }
+
+    public void GotAttacked()
+    {
+        currentHealth -= damageDealt;
+        if (currentHealth < 0)
+        {
+            currentHealth = 0;
+        }
+        this.HealthBar.transform.localScale = new Vector3(this.healthBarLength * (currentHealth / maxHealth), this.HealthBar.transform.localScale.y, this.HealthBar.transform.localScale.z);
+        this.HealthBar.transform.localPosition = new Vector3((1 - (currentHealth / maxHealth)) * -2, 0, 0);
+
+        if (currentHealth <= 0)
+        {
+            animator.SetTrigger("IsDeath");
+            Destroy(this.gameObject, 0.833f);
+        }
+        else
+        {
+            animator.SetTrigger("IsHurt");
+            
+        }
+        
     }
 }

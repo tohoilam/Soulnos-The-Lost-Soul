@@ -10,7 +10,9 @@ public class PlayerMovementControl : MonoBehaviour
     public bool isMovementAllowed;
 
     [SerializeField] private LayerMask groundLayerMask;
+    [SerializeField] private LayerMask enemyAttacksMask;
 
+    private PlayerStatistics playerStatistics;
     private new Rigidbody2D rigidbody;
     private SpriteRenderer spriteRenderer;
     private Animator animator;
@@ -26,6 +28,7 @@ public class PlayerMovementControl : MonoBehaviour
         activateJump = false;
         isMovementAllowed = true;
 
+        playerStatistics = this.GetComponent<PlayerStatistics>();
         rigidbody = this.GetComponent<Rigidbody2D>();
         spriteRenderer = this.GetComponent<SpriteRenderer>();
         animator = this.GetComponent<Animator>();
@@ -67,7 +70,6 @@ public class PlayerMovementControl : MonoBehaviour
                 activateJump = true;
             }
         }
-        Debug.Log(isGrounded);
         
 
         animator.SetFloat("Speed", Mathf.Abs(rigidbody.velocity.x));
@@ -111,6 +113,24 @@ public class PlayerMovementControl : MonoBehaviour
             isGrounded = true;
             animator.SetBool("IsJumping", false);
         }
+        
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision != null)
+        {
+            if (((1 << collision.collider.gameObject.layer) & enemyAttacksMask) != 0)
+            {
+                this.isMovementAllowed = false;
+                this.playerStatistics.GotAttacked();
+            }
+        }
+    }
+
+    public void AllowMovement()
+    {
+        this.isMovementAllowed = true;
         
     }
 }
