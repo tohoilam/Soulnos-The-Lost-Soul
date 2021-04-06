@@ -118,7 +118,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1000000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 2.5
@@ -178,7 +178,7 @@ MonoBehaviour:
   negativeGravity: 0
   groundLayerMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 1792
 --- !u!1 &5090463450570892085
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,6 +246,7 @@ MonoBehaviour:
   realityPlayerObject: {fileID: 0}
   voidPlayerObject: {fileID: 0}
   maxhealth: 0
+  isRunningDragonWarrior: 1
 --- !u!50 &5090463450570892081
 Rigidbody2D:
   serializedVersion: 4

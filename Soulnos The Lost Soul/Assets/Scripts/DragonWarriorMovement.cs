@@ -53,6 +53,17 @@ public class DragonWarriorMovement : MonoBehaviour
         }
     }
 
-
+    public void UnfreezePosition()
+    {
+        this.rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+        if (spriteRenderer.flipX == true)
+        {
+            this.rigidbody.velocity = new Vector2(speed * -1, 0);
+        }
+        else
+        {
+            this.rigidbody.velocity = new Vector2(speed, rigidbody.velocity.y);
+        }
+    }
 
 }

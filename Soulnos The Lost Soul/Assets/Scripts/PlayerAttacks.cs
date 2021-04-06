@@ -17,8 +17,10 @@ public class PlayerAttacks : MonoBehaviour
     public GameObject fireball;
     public GameObject fireballAbilityObject;
     public GameObject swordAbilityExplosion;
+    public GameObject swordAbilityExplosionReverse;
     public float explosionOffsetX;
     public float explosionOffsetY;
+    public float explosionOffsetYVoid;
     //public bool killAttackAnimation;
 
     private PlayerMovementControl playerMovementControlScript;
@@ -156,7 +158,15 @@ public class PlayerAttacks : MonoBehaviour
         if (isExplosionActivate)
         {
             float directionMultiplication = isAttackDirectionRight ? 1.0f : -1.0f;
-            Instantiate(swordAbilityExplosion, this.transform.position + new Vector3(directionMultiplication * explosionOffsetX, explosionOffsetY, 0), Quaternion.identity);
+            if (isVoid)
+            {
+                Instantiate(swordAbilityExplosionReverse, this.transform.position + new Vector3(directionMultiplication * explosionOffsetX, explosionOffsetYVoid, 0), Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(swordAbilityExplosion, this.transform.position + new Vector3(directionMultiplication * explosionOffsetX, explosionOffsetY, 0), Quaternion.identity);
+            }
+            
             isExplosionActivate = false;
         }
     }
