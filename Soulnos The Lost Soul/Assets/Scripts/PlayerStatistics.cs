@@ -27,6 +27,7 @@ public class PlayerStatistics : MonoBehaviour
     private float cooldownBarYPosition;
     private Animator animator;
     private SpriteRenderer cooldownBarSpriteRenderer;
+    private GameObject gameManagement;
     
 
     void Start()
@@ -44,6 +45,7 @@ public class PlayerStatistics : MonoBehaviour
         sword.isPowerUpAttack = false;
 
         animator = this.GetComponent<Animator>();
+        gameManagement = GameObject.Find("GameManagement");
 
         currentHealth = maxHealth;
 
@@ -215,6 +217,7 @@ public class PlayerStatistics : MonoBehaviour
         if (currentHealth <= 0)
         {
             animator.SetTrigger("IsDeath");
+            this.gameManagement.GetComponent<GameManagement>().PlayerDied();
             Destroy(this.gameObject, 0.833f);
         }
         else

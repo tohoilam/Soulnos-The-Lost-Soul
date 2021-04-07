@@ -47,7 +47,7 @@ public class EnemiesTrigger : MonoBehaviour
         {
             this.rigidbody2D.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
 
-            health -= 1;
+            health -= 2;
 
             if (health < 0)
             {
