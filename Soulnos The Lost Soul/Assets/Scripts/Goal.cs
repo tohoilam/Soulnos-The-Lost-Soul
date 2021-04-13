@@ -4,47 +4,43 @@ using UnityEngine;
 
 public class Goal : MonoBehaviour
 {
-    public GameObject clearedText;
-    public float textDelayTime;
-
     [SerializeField] private LayerMask groundLayerMask;
 
     private Animator animator;
-    private float clearedTime;
-    private bool isCleared;
-    private bool textInstantiated;
+    private bool collided;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = this.gameObject.GetComponent<Animator>();
-        isCleared = false;
-        textInstantiated = false;
+        collided = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isCleared)
-        {
-            if (!textInstantiated && Time.time >= clearedTime + textDelayTime)
-            {
-                Instantiate(clearedText);
-                textInstantiated = true;
-                Time.timeScale = 0;
-            }
-        }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision != null)
+        if (collision != null && !collided)
         {
             if (((1 << collision.gameObject.layer) & groundLayerMask) != 0)
             {
                 animator.SetTrigger("TouchFlag");
-                isCleared = true;
-                clearedTime = Time.time;
+
+                collision.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
+                collision.gameObject.GetComponent<PlayerMovementControl>().enabled = false;
+                collision.gameObject.GetComponent<PlayerAttacks>().enabled = false;
+                collision.gameObject.GetComponent<PlayerStatistics>().enabled = false;
+                collision.gameObject.GetComponent<Animator>().SetBool("IsIdle", true);
+
+                this.transform.parent.GetComponent<GameManagement>().goalReachedCount++;
+
+                collided = true;
+
+
                 
             }
         }

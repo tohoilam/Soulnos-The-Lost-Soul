@@ -18,7 +18,7 @@ public class EnemiesTrigger : MonoBehaviour
     private Animator animator;
 
     public bool isRunningDragonWarrior;
-    private Rigidbody2D rigidbody2D;
+    private new Rigidbody2D rigidbody2D;
 
 
     // Start is called before the first frame update
