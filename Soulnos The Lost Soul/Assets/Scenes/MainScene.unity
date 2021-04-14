@@ -3680,6 +3680,10 @@ PrefabInstance:
       propertyPath: health
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7607926658511573074, guid: 25541274b47cd2e45a9313bf69226a52, type: 3}
+      propertyPath: firetime
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 7607926658511573075, guid: 25541274b47cd2e45a9313bf69226a52, type: 3}
       propertyPath: m_Name
       value: RangedDragonWarrior
