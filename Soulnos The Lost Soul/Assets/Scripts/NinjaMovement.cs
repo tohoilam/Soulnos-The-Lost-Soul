@@ -71,6 +71,7 @@ public class NinjaMovement : MonoBehaviour
     }
     public void UnfreezePosition()
     {
+        this.rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
         if (spriteRenderer.flipX == true)
         {
             this.rigidbody.velocity = new Vector2(speed * -1, 0);
