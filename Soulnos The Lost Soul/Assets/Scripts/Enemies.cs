@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Enemies : MonoBehaviour
 {
-    public int health;
     [SerializeField] public LayerMask attackLayer;
 
     private Animator animator;
@@ -21,13 +20,5 @@ public class Enemies : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collider)
-    {
-        if (health <= 0)
-        {
-            animator.SetTrigger("Die");
-            Destroy(gameObject);
-        }
-        
-    }
+    
 }

@@ -170,7 +170,7 @@ MonoBehaviour:
     m_Bits: 256
   enemyAttacksMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 1088
 --- !u!114 &5240862342891511389
 MonoBehaviour:
   m_ObjectHideFlags: 0
