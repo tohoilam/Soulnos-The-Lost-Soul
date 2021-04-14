@@ -5,13 +5,7 @@ using UnityEngine;
 public class ConvertAttackMode : MonoBehaviour
 {
     public AttackModeClass.AttackMode attackMode;
-    public GameObject realityPlayerObject;
-    public GameObject voidPlayerObject;
     [SerializeField] public LayerMask playerLayer;
-
-    private PlayerAttacks playerAttacksScript;
-
-    private 
 
     // Start is called before the first frame update
     void Start()
@@ -29,17 +23,8 @@ public class ConvertAttackMode : MonoBehaviour
     {
         if (collision.gameObject.layer == (int)Mathf.Log(playerLayer.value, 2))
         {
-            
-            if (collision.gameObject == realityPlayerObject)
-            {
-                realityPlayerObject.GetComponent<PlayerAttacks>().setCurrentAttackMode(attackMode);
-                Destroy(gameObject);
-            }
-            else if (collision.gameObject == voidPlayerObject)
-            {
-                voidPlayerObject.GetComponent<PlayerAttacks>().setCurrentAttackMode(attackMode);
-                Destroy(gameObject);
-            }
+            collision.gameObject.GetComponent<PlayerAttacks>().setCurrentAttackMode(attackMode);
+            Destroy(gameObject);
                 
         }
     }

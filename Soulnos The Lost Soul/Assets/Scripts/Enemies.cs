@@ -20,11 +20,5 @@ public class Enemies : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collider)
-    {
-        if (collider.collider.gameObject.layer == (int) Mathf.Log(attackLayer.value, 2))
-        {
-            animator.SetTrigger("IsHurt");
-        }
-    }
+    
 }
