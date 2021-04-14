@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 //public enum AttackMode
 //{
@@ -21,6 +22,15 @@ public class PlayerAttacks : MonoBehaviour
     public float explosionOffsetX;
     public float explosionOffsetY;
     public float explosionOffsetYVoid;
+
+    // Audio
+    public AudioClip swordSlashAudio;
+    public AudioClip fireCastingAudio;
+    public AudioClip swordAbilityAudio;
+    public AudioClip fireCastingAbilityAudio;
+
+    private AudioSource audioSource;
+
     //public bool killAttackAnimation;
 
     private PlayerMovementControl playerMovementControlScript;
@@ -54,6 +64,9 @@ public class PlayerAttacks : MonoBehaviour
         basicAttackCooldownDuration = 0.6f;
         attackTime = -basicAttackCooldownDuration;
         isExplosionActivate = false;
+
+        // Audio
+        audioSource = this.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -101,10 +114,14 @@ public class PlayerAttacks : MonoBehaviour
                             animator.SetTrigger("IsSwordAbility");
                             playerStatistics.CastAbility(currentAttackMode);
                             isExplosionActivate = true;
+                            audioSource.clip = swordAbilityAudio;
+                            audioSource.Play();
                         }
                         else
                         {
                             animator.SetTrigger("IsSwordBasic");
+                            audioSource.clip = swordSlashAudio;
+                            audioSource.PlayDelayed(0.15f);
                         }
                         
                         break;
@@ -114,10 +131,14 @@ public class PlayerAttacks : MonoBehaviour
                         {
                             Instantiate(fireballAbilityObject, this.transform.position + new Vector3(0, -0.3f + rangeCastOffset, 0), Quaternion.identity);
                             playerStatistics.CastAbility(currentAttackMode);
+                            audioSource.clip = fireCastingAbilityAudio;
+                            audioSource.Play();
                         }
                         else
                         {
                             Instantiate(fireball, this.transform.position + new Vector3(0, -0.3f + rangeCastOffset, 0), Quaternion.identity);
+                            audioSource.clip = fireCastingAudio;
+                            audioSource.Play();
                         }
 
                         break;
