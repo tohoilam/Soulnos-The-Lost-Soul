@@ -17,7 +17,7 @@ public class EnemiesTrigger : MonoBehaviour
 
     private Animator animator;
 
-    public bool isRunningDragonWarrior;
+    public bool isRunningNinja;
     private new Rigidbody2D rigidbody2D;
 
 
@@ -48,7 +48,6 @@ public class EnemiesTrigger : MonoBehaviour
             this.rigidbody2D.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
 
             health -= 2;
-
             if (health < 0)
             {
                 health = 0;
@@ -60,9 +59,19 @@ public class EnemiesTrigger : MonoBehaviour
             if (health <= 0)
             {
                 animator.SetTrigger("Die");
-                Destroy(transform.parent.gameObject,0.833f);
+                if (transform.parent.gameObject.name== "RunningNinja")
+                {
+                    Destroy(transform.parent.gameObject, 0.667f);
+                }
+                else
+                {
+                    Destroy(transform.parent.gameObject, 0.833f);
+                }
             }
-            animator.SetTrigger("IsHurt");
+            if (health > 0)
+            {
+                animator.SetTrigger("IsHurt");
+            }
             
             if (collision.gameObject == realityPlayerSwordAttackRight)
             {
@@ -86,9 +95,9 @@ public class EnemiesTrigger : MonoBehaviour
 
     public void UnfreezePosition()
     {
-        if (isRunningDragonWarrior)
+        if (isRunningNinja)
         {
-            this.gameObject.transform.parent.GetComponent<DragonWarriorMovement>().UnfreezePosition();
+            this.gameObject.transform.parent.GetComponent<NinjaMovement>().UnfreezePosition();
         }
     }
 }
