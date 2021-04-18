@@ -164,7 +164,6 @@ public class PlayerAttacks : MonoBehaviour
 
     public void TriggerSowrdCollision()
     {
-        Debug.Log("Here");
         isSwordTriggerAllowed = true;
         if (isAttackDirectionRight)
         {
