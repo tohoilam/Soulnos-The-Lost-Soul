@@ -28,7 +28,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 8776843043463629475}
+  - {fileID: 7092020801900940375}
   - {fileID: 480756537646897783}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -47,9 +47,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathScreen: {fileID: 7868182605105865602, guid: ebb62d5bb759246158eff365b82811b7, type: 3}
   clearedText: {fileID: 977574799282736227, guid: 172ec15b0cbb24ef9b8c23d315b54077, type: 3}
-  textDelayTime: 2
+  textDelayTime: 4
   goalReachedCount: 0
---- !u!1001 &72373359650244647
+--- !u!1001 &1920618428752269011
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8704476288404259460, guid: 8fac06d4469854f9292a88e1fe72f22c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.68
+      value: 1.27
       objectReference: {fileID: 0}
     - target: {fileID: 8704476288404259460, guid: 8fac06d4469854f9292a88e1fe72f22c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -106,10 +106,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fac06d4469854f9292a88e1fe72f22c, type: 3}
---- !u!4 &8776843043463629475 stripped
+--- !u!4 &7092020801900940375 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8704476288404259460, guid: 8fac06d4469854f9292a88e1fe72f22c, type: 3}
-  m_PrefabInstance: {fileID: 72373359650244647}
+  m_PrefabInstance: {fileID: 1920618428752269011}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9108387958381500659
 PrefabInstance:
@@ -164,6 +164,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8704476288404259461, guid: 8fac06d4469854f9292a88e1fe72f22c, type: 3}
       propertyPath: m_FlipY
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8704476288404259462, guid: 8fac06d4469854f9292a88e1fe72f22c, type: 3}
+      propertyPath: isVoidGate
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8704476288404259463, guid: 8fac06d4469854f9292a88e1fe72f22c, type: 3}

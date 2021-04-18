@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7818615839401652713}
   m_Layer: 7
   m_Name: SwordAbilityExplosionReverse
-  m_TagString: Untagged
+  m_TagString: PowerUpAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
