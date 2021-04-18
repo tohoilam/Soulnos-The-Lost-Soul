@@ -5,15 +5,8 @@ using UnityEngine;
 public class EnemiesTrigger : MonoBehaviour
 {
     [SerializeField] public LayerMask attackLayer;
-    //public GameObject realityPlayerObject;
-    //public GameObject voidPlayerObject;
     public float maxhealth;
     private float health;
-
-    //private GameObject realityPlayerSwordAttackRight;
-    //private GameObject realityPlayerSwordAttackLeft;
-    //private GameObject voidPlayerSwordAttackRight;
-    //private GameObject voidPlayerSwordAttackLeft;
 
     private Animator animator;
 
@@ -25,10 +18,6 @@ public class EnemiesTrigger : MonoBehaviour
     void Start()
     {
         animator = this.transform.parent.GetComponent<Animator>();
-        //realityPlayerSwordAttackRight = GameObject.Find("RealityPlayerSwordAttackRight");
-        //realityPlayerSwordAttackLeft = GameObject.Find("RealityPlayerSwordAttackLeft");
-        //voidPlayerSwordAttackRight = GameObject.Find("VoidPlayerSwordAttackRight");
-        //voidPlayerSwordAttackLeft = GameObject.Find("VoidPlayerSwordAttackLeft");
         health = maxhealth;
 
 
@@ -45,11 +34,24 @@ public class EnemiesTrigger : MonoBehaviour
     {
         if (collision.gameObject.layer == (int)Mathf.Log(attackLayer.value, 2))
         {
-            Debug.Log("Trigger!");
 
             this.rigidbody2D.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
 
-            health -= 2;
+            if (collision.gameObject.tag == "Fireball")
+            {
+                health -= 2;
+                Destroy(collision.gameObject);
+            }
+            else if (collision.gameObject.tag == "PowerUpAttack")
+            {
+                health = 0;
+            }
+            else
+            {
+                health -= 4;
+                collision.gameObject.GetComponent<CircleCollider2D>().enabled = false;
+            }
+
             if (health < 0)
             {
                 health = 0;
@@ -85,23 +87,6 @@ public class EnemiesTrigger : MonoBehaviour
             {
                 collision.gameObject.GetComponent<CircleCollider2D>().enabled = false;
             }
-
-            //if (collision.gameObject == realityPlayerSwordAttackRight)
-            //{
-            //    realityPlayerSwordAttackRight.GetComponent<CircleCollider2D>().enabled = false;
-            //}
-            //else if (collision.gameObject == realityPlayerSwordAttackLeft)
-            //{
-            //    realityPlayerSwordAttackLeft.GetComponent<CircleCollider2D>().enabled = false;
-            //}
-            //else if (collision.gameObject == voidPlayerSwordAttackRight)
-            //{
-            //    voidPlayerSwordAttackRight.GetComponent<CircleCollider2D>().enabled = false;
-            //}
-            //else if (collision.gameObject == voidPlayerSwordAttackLeft)
-            //{
-            //    voidPlayerSwordAttackLeft.GetComponent<CircleCollider2D>().enabled = false;
-            //}
         }
         
     }

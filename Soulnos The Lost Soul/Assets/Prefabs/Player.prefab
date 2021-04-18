@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 5240862342956358335}
   m_Layer: 7
   m_Name: RealityPlayerSwordAttackLeft
-  m_TagString: Untagged
+  m_TagString: Sword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -537,7 +537,7 @@ GameObject:
   - component: {fileID: 5240862344475423844}
   m_Layer: 7
   m_Name: RealityPlayerSwordAttackRight
-  m_TagString: Untagged
+  m_TagString: Sword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
