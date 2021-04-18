@@ -164,16 +164,33 @@ public class PlayerAttacks : MonoBehaviour
 
     public void TriggerSowrdCollision()
     {
+        Debug.Log("Here");
         isSwordTriggerAllowed = true;
         if (isAttackDirectionRight)
         {
-            GameObject.Find("RealityPlayerSwordAttackRight").GetComponent<CircleCollider2D>().enabled = true;
-            GameObject.Find("VoidPlayerSwordAttackRight").GetComponent<CircleCollider2D>().enabled = true;
+            if (isVoid)
+            {
+                GameObject.Find("VoidPlayerSwordAttackRight").GetComponent<CircleCollider2D>().enabled = true;
+            }
+            else
+            {
+                GameObject.Find("RealityPlayerSwordAttackRight").GetComponent<CircleCollider2D>().enabled = true;
+            }
+            
+            
         }
         else
         {
-            GameObject.Find("RealityPlayerSwordAttackLeft").GetComponent<CircleCollider2D>().enabled = true;
-            GameObject.Find("VoidPlayerSwordAttackLeft").GetComponent<CircleCollider2D>().enabled = true;
+            if (isVoid)
+            {
+                GameObject.Find("VoidPlayerSwordAttackLeft").GetComponent<CircleCollider2D>().enabled = true;
+            }
+            else
+            {
+                GameObject.Find("RealityPlayerSwordAttackLeft").GetComponent<CircleCollider2D>().enabled = true;
+            }
+            
+            
         }
 
         if (isExplosionActivate)
