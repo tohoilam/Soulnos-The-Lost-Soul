@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Fireball : MonoBehaviour
 {
+    [SerializeField] public LayerMask enemyLayer;
     public bool positiveDirection;
     public int speed;
     //public GameObject player;
@@ -34,6 +35,16 @@ public class Fireball : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.layer != (int)Mathf.Log(enemyLayer.value, 2))
+        {
+            Destroy(gameObject);
+        }
+            
+    }
+
+    void OnBecameInvisible()
+    {
         Destroy(gameObject);
+
     }
 }

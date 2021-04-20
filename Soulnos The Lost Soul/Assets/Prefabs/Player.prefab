@@ -194,9 +194,9 @@ MonoBehaviour:
   explosionOffsetY: -0.18
   explosionOffsetYVoid: 0.2
   swordSlashAudio: {fileID: 8300000, guid: d46323e22e74e46baa241cbf48c85671, type: 3}
-  fireCastingAudio: {fileID: 8300000, guid: e11a5a019377fbd4c81caa0adcb4c236, type: 3}
-  swordAbilityAudio: {fileID: 0}
-  fireCastingAbilityAudio: {fileID: 8300000, guid: adcac75087a17704ca6c0c3b15bc3aa5, type: 3}
+  fireCastingAudio: {fileID: 8300000, guid: 891a41a139817472f9977815ac585b1d, type: 3}
+  swordAbilityAudio: {fileID: 8300000, guid: f950a735f70574634bfe4531efc169f7, type: 3}
+  fireCastingAbilityAudio: {fileID: 8300000, guid: 06730f87c6ab24821aa55eb082f6f129, type: 3}
   isSwordTriggerAllowed: 0
 --- !u!114 &4748582508373882820
 MonoBehaviour:
@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 5240862342956358335}
   m_Layer: 7
   m_Name: RealityPlayerSwordAttackLeft
-  m_TagString: Untagged
+  m_TagString: Sword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -516,7 +516,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 5240862343632415754}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 64a111739ed6e482480623c2def41443, type: 2}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -537,7 +537,7 @@ GameObject:
   - component: {fileID: 5240862344475423844}
   m_Layer: 7
   m_Name: RealityPlayerSwordAttackRight
-  m_TagString: Untagged
+  m_TagString: Sword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
