@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8704476288404259460}
   - component: {fileID: 8704476288404259461}
-  - component: {fileID: 8704476288404259466}
   - component: {fileID: 8704476288404259463}
   - component: {fileID: 8704476288404259462}
   m_Layer: 0
@@ -28,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8704476288404259467}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.3369377, y: 1.8127189, z: 1.3609}
+  m_LocalPosition: {x: -0.1198, y: -0.1355, z: 0}
+  m_LocalScale: {x: 1.8373452, y: 1.3891844, z: 1.0770744}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -71,10 +70,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 867082709
+  m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -8187355101989356663, guid: 27a107940057e8743a507269b18a691a, type: 3}
+  m_Sprite: {fileID: -7713870140638383000, guid: ddd43fe1551c05b4b9fe09ae59f6f9b8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -85,25 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &8704476288404259466
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8704476288404259467}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 417f22384fb084fd5a78f87737519abc, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!61 &8704476288404259463
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -117,18 +97,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.088290714, y: -0.09923467}
+  m_Offset: {x: 0, y: -0.09923467}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
+    oldSize: {x: 0.48, y: 0.64}
     newSize: {x: 0.64, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16316672, y: 0.44153064}
+  m_Size: {x: 0.07, y: 0.44153064}
   m_EdgeRadius: 0
 --- !u!114 &8704476288404259462
 MonoBehaviour:
@@ -142,8 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8784e836df2f342c4b2e7237eb785348, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clearedText: {fileID: 977574799282736227, guid: 172ec15b0cbb24ef9b8c23d315b54077, type: 3}
-  textDelayTime: 2
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 512
+  isVoidGate: 0

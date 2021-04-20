@@ -5,30 +5,19 @@ using UnityEngine;
 public class EnemiesTrigger : MonoBehaviour
 {
     [SerializeField] public LayerMask attackLayer;
-    public GameObject realityPlayerObject;
-    public GameObject voidPlayerObject;
     public float maxhealth;
     private float health;
 
-    private GameObject realityPlayerSwordAttackRight;
-    private GameObject realityPlayerSwordAttackLeft;
-    private GameObject voidPlayerSwordAttackRight;
-    private GameObject voidPlayerSwordAttackLeft;
-
     private Animator animator;
 
-    public bool isRunningDragonWarrior;
-    private Rigidbody2D rigidbody2D;
+    public bool isRunningNinja;
+    private new Rigidbody2D rigidbody2D;
 
 
     // Start is called before the first frame update
     void Start()
     {
         animator = this.transform.parent.GetComponent<Animator>();
-        realityPlayerSwordAttackRight = GameObject.Find("RealityPlayerSwordAttackRight");
-        realityPlayerSwordAttackLeft = GameObject.Find("RealityPlayerSwordAttackLeft");
-        voidPlayerSwordAttackRight = GameObject.Find("VoidPlayerSwordAttackRight");
-        voidPlayerSwordAttackLeft = GameObject.Find("VoidPlayerSwordAttackLeft");
         health = maxhealth;
 
 
@@ -41,13 +30,27 @@ public class EnemiesTrigger : MonoBehaviour
 
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == (int)Mathf.Log(attackLayer.value, 2))
         {
+
             this.rigidbody2D.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
 
-            health -= 2;
+            if (collision.gameObject.tag == "Fireball")
+            {
+                health -= 2;
+                Destroy(collision.gameObject);
+            }
+            else if (collision.gameObject.tag == "PowerUpAttack")
+            {
+                health = 0;
+            }
+            else
+            {
+                health -= 4;
+                collision.gameObject.GetComponent<CircleCollider2D>().enabled = false;
+            }
 
             if (health < 0)
             {
@@ -60,25 +63,29 @@ public class EnemiesTrigger : MonoBehaviour
             if (health <= 0)
             {
                 animator.SetTrigger("Die");
-                Destroy(transform.parent.gameObject,0.833f);
+                if (transform.parent.gameObject.name== "RunningNinja")
+                {
+                    Destroy(transform.parent.gameObject, 0.667f);
+                }
+                else
+                {
+                    Destroy(transform.parent.gameObject, 0.833f);
+                }
             }
-            animator.SetTrigger("IsHurt");
+            if (health > 0)
+            {
+                animator.SetTrigger("IsHurt");
+            }
+
             
-            if (collision.gameObject == realityPlayerSwordAttackRight)
+
+            if (collision.gameObject.tag == "Fireball")
             {
-                realityPlayerSwordAttackRight.GetComponent<CircleCollider2D>().enabled = false;
+                Destroy(collision.gameObject);
             }
-            else if (collision.gameObject == realityPlayerSwordAttackLeft)
+            else
             {
-                realityPlayerSwordAttackLeft.GetComponent<CircleCollider2D>().enabled = false;
-            }
-            else if (collision.gameObject == voidPlayerSwordAttackRight)
-            {
-                voidPlayerSwordAttackRight.GetComponent<CircleCollider2D>().enabled = false;
-            }
-            else if (collision.gameObject == voidPlayerSwordAttackLeft)
-            {
-                voidPlayerSwordAttackLeft.GetComponent<CircleCollider2D>().enabled = false;
+                collision.gameObject.GetComponent<CircleCollider2D>().enabled = false;
             }
         }
         
@@ -86,9 +93,9 @@ public class EnemiesTrigger : MonoBehaviour
 
     public void UnfreezePosition()
     {
-        if (isRunningDragonWarrior)
+        if (isRunningNinja)
         {
-            this.gameObject.transform.parent.GetComponent<DragonWarriorMovement>().UnfreezePosition();
+            this.gameObject.transform.parent.GetComponent<NinjaMovement>().UnfreezePosition();
         }
     }
 }

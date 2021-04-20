@@ -4,47 +4,88 @@ using UnityEngine;
 
 public class Goal : MonoBehaviour
 {
-    public GameObject clearedText;
-    public float textDelayTime;
-
     [SerializeField] private LayerMask groundLayerMask;
+    public bool isVoidGate;
 
-    private Animator animator;
-    private float clearedTime;
-    private bool isCleared;
-    private bool textInstantiated;
+    private bool collided;
+    private GameObject playerObject;
+    private float delayWalk = 0.5f;
+    private float arrivedTime;
+    private bool arrivedCenter;
+    private float walkingSpeed = 0.005f;
+    //private float delayDestroy = 2f;
+    //private float arrivedCenterTime;
 
     // Start is called before the first frame update
     void Start()
     {
-        animator = this.gameObject.GetComponent<Animator>();
-        isCleared = false;
-        textInstantiated = false;
+        collided = false;
+        arrivedCenter = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isCleared)
+        if (collided && Time.time > arrivedTime + delayWalk && !arrivedCenter)
         {
-            if (!textInstantiated && Time.time >= clearedTime + textDelayTime)
+            int directionPositive;
+            if (this.transform.position.x > playerObject.transform.position.x)
             {
-                Instantiate(clearedText);
-                textInstantiated = true;
-                Time.timeScale = 0;
+                directionPositive = 1;
+            }
+            else
+            {
+                directionPositive = -1;
+            }
+            playerObject.transform.position += new Vector3(directionPositive * walkingSpeed, 0f, 0f);
+            if (Mathf.Abs(this.transform.position.x - playerObject.transform.position.x) < walkingSpeed + 0.001f)
+            {
+                arrivedCenter = true;
+                //arrivedCenterTime = Time.time;
+
+                playerObject.GetComponent<Animator>().SetBool("IsIdle", true);
+                playerObject.GetComponent<Animator>().SetBool("IsRunningToGoal", false);
+
+                playerObject.transform.GetChild(3).gameObject.SetActive(false);
+            }
+                
+        }
+
+        if (arrivedCenter)
+        {
+            if (playerObject.GetComponent<SpriteRenderer>().color.a != 0)
+            {
+                playerObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, playerObject.GetComponent<SpriteRenderer>().color.a - 0.01f);
+
             }
         }
+
+        //if (arrivedCenter && Time.time > arrivedCenterTime + delayDestroy)
+        //{
+        //    Destroy(playerObject);
+        //}
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision != null)
+        if (collision != null && !collided)
         {
-            if (((1 << collision.gameObject.layer) & groundLayerMask) != 0)
+            if (((1 << collision.gameObject.layer) & groundLayerMask) != 0 && collision.gameObject.GetComponent<PlayerMovementControl>().negativeGravity == isVoidGate)
             {
-                animator.SetTrigger("TouchFlag");
-                isCleared = true;
-                clearedTime = Time.time;
+                playerObject = collision.gameObject;
+                playerObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
+                playerObject.GetComponent<PlayerMovementControl>().enabled = false;
+                playerObject.GetComponent<PlayerAttacks>().enabled = false;
+                playerObject.GetComponent<PlayerStatistics>().enabled = false;
+                playerObject.GetComponent<Animator>().SetBool("IsRunningToGoal", true);
+
+
+
+                this.transform.parent.GetComponent<GameManagement>().goalReachedCount++;
+
+                collided = true;
+
+                arrivedTime = Time.time;
                 
             }
         }
