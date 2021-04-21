@@ -11,6 +11,7 @@ public class PlayerMovementControl : MonoBehaviour
 
     [SerializeField] private LayerMask groundLayerMask;
     [SerializeField] private LayerMask enemyAttacksMask;
+    [SerializeField] private LayerMask deathTrapLayerMask;
 
     private PlayerStatistics playerStatistics;
     private new Rigidbody2D rigidbody;
@@ -124,6 +125,12 @@ public class PlayerMovementControl : MonoBehaviour
             {
                 this.isMovementAllowed = false;
                 this.playerStatistics.GotAttacked();
+            }
+
+            if (((1 << collision.collider.gameObject.layer) & deathTrapLayerMask) != 0)
+            {
+                this.isMovementAllowed = false;
+                this.playerStatistics.PlayerDie(1.833f);
             }
         }
     }

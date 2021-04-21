@@ -171,6 +171,9 @@ MonoBehaviour:
   enemyAttacksMask:
     serializedVersion: 2
     m_Bits: 1088
+  deathTrapLayerMask:
+    serializedVersion: 2
+    m_Bits: 4096
 --- !u!114 &5240862342891511389
 MonoBehaviour:
   m_ObjectHideFlags: 0
