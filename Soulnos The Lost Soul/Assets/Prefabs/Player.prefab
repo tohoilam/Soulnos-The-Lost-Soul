@@ -165,6 +165,7 @@ MonoBehaviour:
   jumpForce: 7
   negativeGravity: 0
   isMovementAllowed: 0
+  disableGettingAttackTime: 0.5
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 256
@@ -174,6 +175,9 @@ MonoBehaviour:
   deathTrapLayerMask:
     serializedVersion: 2
     m_Bits: 4096
+  fireTrapLayerMask:
+    serializedVersion: 2
+    m_Bits: 65536
 --- !u!114 &5240862342891511389
 MonoBehaviour:
   m_ObjectHideFlags: 0
