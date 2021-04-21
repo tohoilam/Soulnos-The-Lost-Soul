@@ -173,17 +173,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7f53b7969592494f9d1a180f61460fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundLayer:
+  wallLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8192
   playerLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   speed: 2
   negativeGravity: 0
   groundLayerMask:
     serializedVersion: 2
-    m_Bits: 1792
+    m_Bits: 9728
 --- !u!1 &5090463450570892085
 GameObject:
   m_ObjectHideFlags: 0
