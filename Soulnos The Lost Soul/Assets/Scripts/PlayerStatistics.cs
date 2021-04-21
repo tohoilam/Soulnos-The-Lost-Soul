@@ -96,7 +96,7 @@ public class PlayerStatistics : MonoBehaviour
 
     private void checkOutOfScreen()
     {
-        if (this.transform.position.y > 8f || this.transform.position.y < -8f ||this.transform.position.x > 8f || this.transform.position.x < -8f)
+        if (this.transform.position.y > 8f || this.transform.position.y < -8f)
         {
             this.PlayerDie();
         }
@@ -238,7 +238,7 @@ public class PlayerStatistics : MonoBehaviour
         
     }
 
-    public void PlayerDie()
+    public void PlayerDie(float destroyDelayTime = 0f)
     {
         currentHealth = 0;
 
@@ -247,6 +247,12 @@ public class PlayerStatistics : MonoBehaviour
 
         animator.SetTrigger("IsDeath");
         this.gameManagement.GetComponent<GameManagement>().PlayerDied();
-        Destroy(this.gameObject);
+        Destroy(this.gameObject, destroyDelayTime);
+    }
+
+    public void HideColor()
+    {
+        this.GetComponent<SpriteRenderer>().enabled = false;
+        this.transform.GetChild(3).gameObject.SetActive(false);
     }
 }
