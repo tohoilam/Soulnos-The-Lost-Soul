@@ -98,6 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boostDuration: 10
   statusToApply: 0
+  respawnTime: 15
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
