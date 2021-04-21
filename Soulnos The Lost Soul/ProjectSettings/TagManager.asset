@@ -25,7 +25,7 @@ TagManager:
   - Ninja Collider
   - 
   - 
-  - 
+  - FireTrap
   - 
   - 
   - 
@@ -56,6 +56,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3089832835
+    locked: 0
+  - name: Traps
+    uniqueID: 1955428907
     locked: 0
   - name: Attacks
     uniqueID: 1281598739

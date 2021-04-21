@@ -14,6 +14,7 @@ public class ApplyStatus : MonoBehaviour
 
     public float boostDuration;
     public Status statusToApply;
+    public float respawnTime;
     [SerializeField] public LayerMask playerLayer;
 
     public float jumpHeightBoostNewValue;
@@ -25,6 +26,7 @@ public class ApplyStatus : MonoBehaviour
     private bool effectApplied;
     private float floatResetValue;
     private GameObject appliedObject;
+    private bool isDisable;
 
     // Start is called before the first frame update
     void Start()
@@ -40,7 +42,13 @@ public class ApplyStatus : MonoBehaviour
             removeEffect();
         }
 
+        if (isDisable && Time.time > appliedTime + respawnTime)
+        {
+            gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            gameObject.GetComponent<CircleCollider2D>().enabled = true;
 
+            isDisable = false;
+        }
         
     }
 
@@ -70,8 +78,10 @@ public class ApplyStatus : MonoBehaviour
                     break;
             }
             effectApplied = true;
+            isDisable = true;
             appliedTime = Time.time;
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            gameObject.GetComponent<CircleCollider2D>().enabled = false;
 
         }
     }
@@ -91,6 +101,7 @@ public class ApplyStatus : MonoBehaviour
 
         }
         effectApplied = false;
-        Destroy(gameObject);
+
+        //Destroy(gameObject);
     }
 }
