@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Parallax : MonoBehaviour
 {
-    public float startingPosition;
-    public float width;
+    private float startingPosition;
+    private float width;
     public float speed;
 
     //Start is called before the first frame update

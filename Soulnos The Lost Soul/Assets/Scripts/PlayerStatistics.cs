@@ -214,9 +214,17 @@ public class PlayerStatistics : MonoBehaviour
         }
     }
 
-    public void GotAttacked()
+    public void GotAttacked(float specialDamageDealt = 0)
     {
-        currentHealth -= damageDealt;
+        if (specialDamageDealt == 0)
+        {
+            currentHealth -= damageDealt;
+        }
+        else
+        {
+            currentHealth -= specialDamageDealt;
+        }
+        
         if (currentHealth < 0)
         {
             currentHealth = 0;
