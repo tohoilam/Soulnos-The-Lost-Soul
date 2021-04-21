@@ -11,14 +11,14 @@ public class SmoothFollow : MonoBehaviour
     public float smoothSpeed = 0.125f;
     void FixedUpdate()
     {
-        if ((target.position.x < -3.27) && (target2.position.x < -3.27))
+        if ((target.position.x < -2.08) || (target2.position.x < -2.08))
         {
-            float posX = Mathf.SmoothDamp(transform.position.x, -3.27f, ref velocity.x, smoothSpeed);
+            float posX = Mathf.SmoothDamp(transform.position.x, -2.08f, ref velocity.x, smoothSpeed);
             transform.position = new Vector3(posX, 0.36f, -10);
         }
-        else if ((target.position.x > -3.87) && (target2.position.x > -3.87))
+        else if ((target.position.x > 2.7) || (target2.position.x > 2.7))
         {
-            float posX = Mathf.SmoothDamp(transform.position.x, 3.87f, ref velocity.x, smoothSpeed);
+            float posX = Mathf.SmoothDamp(transform.position.x, 2.7f, ref velocity.x, smoothSpeed);
             transform.position = new Vector3(posX, 0.36f, -10);
         }
 
