@@ -43,6 +43,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: RealityPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 5240862342891511383, guid: d0fb9aa71144e4239953280b45359024, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240862342891511383, guid: d0fb9aa71144e4239953280b45359024, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240862342891511383, guid: d0fb9aa71144e4239953280b45359024, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5240862342891511384, guid: d0fb9aa71144e4239953280b45359024, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -116,6 +128,22 @@ PrefabInstance:
     - target: {fileID: 5240862342891511383, guid: d0fb9aa71144e4239953280b45359024, type: 3}
       propertyPath: m_FlipY
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240862342891511383, guid: d0fb9aa71144e4239953280b45359024, type: 3}
+      propertyPath: m_Color.a
+      value: 0.6509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240862342891511383, guid: d0fb9aa71144e4239953280b45359024, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6698113
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240862342891511383, guid: d0fb9aa71144e4239953280b45359024, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6340038
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240862342891511383, guid: d0fb9aa71144e4239953280b45359024, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6161
       objectReference: {fileID: 0}
     - target: {fileID: 5240862342891511384, guid: d0fb9aa71144e4239953280b45359024, type: 3}
       propertyPath: m_RootOrder
