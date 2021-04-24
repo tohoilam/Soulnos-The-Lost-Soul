@@ -86,7 +86,6 @@ public class PlayerMovementControl : MonoBehaviour
         if (!isGetAttackAllowed && Time.time > lastGetAttackedTime + disableGettingAttackTime)
         {
             isGetAttackAllowed = true;
-            Debug.Log("NOW");
         }
 
     }

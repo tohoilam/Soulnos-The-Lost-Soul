@@ -10,14 +10,13 @@ public class PathFollow : MonoBehaviour
     public float speed;
     float timer;
     int currentNode;
-    static Vector3 currentPositionHolder;
+    Vector3 currentPositionHolder;
 
 
     // Start is called before the first frame update
     void Start()
     {
         currentNode = 0;
-        pathNode = GetComponentsInChildren<PathNode>();
         trap = this.transform.parent.GetChild(0).gameObject;
         CheckNode();
 
@@ -26,10 +25,10 @@ public class PathFollow : MonoBehaviour
 
     void CheckNode()
     {
-        if (currentNode < pathNode.Length)
+        if (currentNode < this.transform.childCount)
         {
             timer = 0;
-            currentPositionHolder = pathNode[currentNode].transform.position;
+            currentPositionHolder = this.transform.GetChild(currentNode).transform.position;
         }
             
     }
@@ -45,8 +44,8 @@ public class PathFollow : MonoBehaviour
         }
         else
         {
-            currentNode = (currentNode < pathNode.Length) ? currentNode + 1 : 0;
-            
+            currentNode = (currentNode < this.transform.childCount) ? currentNode + 1 : 0;
+
             CheckNode();
         }
     }
