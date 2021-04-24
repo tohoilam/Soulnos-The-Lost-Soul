@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class NinjaMovement : MonoBehaviour
 {
-    [SerializeField] public LayerMask groundLayer;
+    [SerializeField] public LayerMask wallLayer;
     [SerializeField] public LayerMask playerLayer;
     public float speed;
     public bool negativeGravity;
@@ -22,7 +22,14 @@ public class NinjaMovement : MonoBehaviour
         animator = this.transform.GetComponent<Animator>();
         rigidbody = this.GetComponent<Rigidbody2D>();
         spriteRenderer = this.GetComponent<SpriteRenderer>();
-        spriteRenderer.flipX = false;
+        if (speed < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else
+        {
+            spriteRenderer.flipX = false;
+        }
         this.rigidbody.velocity = new Vector2(speed, rigidbody.velocity.y);
         if (negativeGravity)
         {
@@ -43,7 +50,7 @@ public class NinjaMovement : MonoBehaviour
         {
             if (((1 << obj.gameObject.layer) & groundLayerMask) != 0)
             {
-                if (obj.gameObject.layer == (int)Mathf.Log(groundLayer.value, 2))
+                if (obj.gameObject.layer == (int)Mathf.Log(wallLayer.value, 2))
                 {
                     flip();
                 }
@@ -61,11 +68,13 @@ public class NinjaMovement : MonoBehaviour
         if (spriteRenderer.flipX == false)
         {
             spriteRenderer.flipX = true;
-            this.rigidbody.velocity = new Vector2(speed * -1, 0);
+            speed *= -1;
+            this.rigidbody.velocity = new Vector2(speed, rigidbody.velocity.y);
         }
         else if (spriteRenderer.flipX == true)
         {
             spriteRenderer.flipX = false;
+            speed *= -1;
             this.rigidbody.velocity = new Vector2(speed, rigidbody.velocity.y);
         }
     }

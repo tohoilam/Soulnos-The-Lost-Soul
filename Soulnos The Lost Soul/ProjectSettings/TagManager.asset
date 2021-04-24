@@ -21,12 +21,12 @@ TagManager:
   - Player
   - Enemies
   - Ground Collider
+  - DeathTrap
+  - Ninja Collider
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - FireTrap
+  - Items
   - 
   - 
   - 
@@ -51,11 +51,17 @@ TagManager:
   - name: Ground
     uniqueID: 867082709
     locked: 0
+  - name: Items
+    uniqueID: 2137373597
+    locked: 0
   - name: Enemies
     uniqueID: 3663292243
     locked: 0
   - name: Player
     uniqueID: 3089832835
+    locked: 0
+  - name: Traps
+    uniqueID: 1955428907
     locked: 0
   - name: Attacks
     uniqueID: 1281598739

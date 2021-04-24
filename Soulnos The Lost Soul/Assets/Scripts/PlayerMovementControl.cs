@@ -11,6 +11,8 @@ public class PlayerMovementControl : MonoBehaviour
 
     [SerializeField] private LayerMask groundLayerMask;
     [SerializeField] private LayerMask enemyAttacksMask;
+    [SerializeField] private LayerMask deathTrapLayerMask;
+    [SerializeField] private LayerMask fireTrapLayerMask;
 
     private PlayerStatistics playerStatistics;
     private new Rigidbody2D rigidbody;
@@ -20,6 +22,10 @@ public class PlayerMovementControl : MonoBehaviour
     private bool activateJump;
     private bool isGrounded;
     private int gravityScale;
+    private bool isGetAttackAllowed;
+    private float lastGetAttackedTime;
+    private float disableGettingAttackTime;
+    private float disableGettingAttackTimeFire;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +33,9 @@ public class PlayerMovementControl : MonoBehaviour
         isGrounded = false;
         activateJump = false;
         isMovementAllowed = true;
+        isGetAttackAllowed = true;
+        disableGettingAttackTime = 0.5f;
+        disableGettingAttackTimeFire = 2.5f;
 
         playerStatistics = this.GetComponent<PlayerStatistics>();
         rigidbody = this.GetComponent<Rigidbody2D>();
@@ -74,6 +83,11 @@ public class PlayerMovementControl : MonoBehaviour
 
         animator.SetFloat("Speed", Mathf.Abs(rigidbody.velocity.x));
 
+        if (!isGetAttackAllowed && Time.time > lastGetAttackedTime + disableGettingAttackTime)
+        {
+            isGetAttackAllowed = true;
+        }
+
     }
 
     private void FixedUpdate()
@@ -113,17 +127,35 @@ public class PlayerMovementControl : MonoBehaviour
             isGrounded = true;
             animator.SetBool("IsJumping", false);
         }
-        
+
+        if (isGetAttackAllowed && ((1 << collision.gameObject.layer) & fireTrapLayerMask) != 0)
+        {
+            this.isMovementAllowed = false;
+            this.playerStatistics.GotAttacked(80f);
+            isGetAttackAllowed = false;
+            lastGetAttackedTime = Time.time + disableGettingAttackTimeFire;
+        }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision != null)
         {
-            if (((1 << collision.collider.gameObject.layer) & enemyAttacksMask) != 0)
+            if (isGetAttackAllowed && ((1 << collision.collider.gameObject.layer) & enemyAttacksMask) != 0)
             {
                 this.isMovementAllowed = false;
                 this.playerStatistics.GotAttacked();
+                isGetAttackAllowed = false;
+                lastGetAttackedTime = Time.time;
+            }
+
+            if (((1 << collision.collider.gameObject.layer) & deathTrapLayerMask) != 0)
+            {
+                this.isMovementAllowed = false;
+                this.playerStatistics.PlayerDie(1.833f);
+                isGetAttackAllowed = false;
+                lastGetAttackedTime = Time.time;
             }
         }
     }
