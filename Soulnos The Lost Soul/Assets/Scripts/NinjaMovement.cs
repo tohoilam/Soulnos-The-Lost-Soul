@@ -50,11 +50,11 @@ public class NinjaMovement : MonoBehaviour
         {
             if (((1 << obj.gameObject.layer) & groundLayerMask) != 0)
             {
-                if (obj.gameObject.layer == (int)Mathf.Log(wallLayer.value, 2))
-                {
-                    flip();
-                }
-                 else if (obj.gameObject.layer == (int)Mathf.Log(playerLayer.value, 2))
+                //if (obj.gameObject.layer == (int)Mathf.Log(wallLayer.value, 2))
+                //{
+                //    flip();
+                //}
+                if (obj.gameObject.layer == (int)Mathf.Log(playerLayer.value, 2))
                 {
                     this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
                     animator.SetTrigger("Attack");
@@ -62,6 +62,18 @@ public class NinjaMovement : MonoBehaviour
             }
         }
     }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision != null)
+        {
+            if (((1 << collision.gameObject.layer) & wallLayer) != 0)
+            {
+                flip();
+            }
+        }
+    }
+
     public void flip()
     {
         this.rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
