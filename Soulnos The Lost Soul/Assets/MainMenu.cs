@@ -4,14 +4,16 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
-{
+{   
+    public static int stageCleared = 1;
+
     public void QuitGame()
     {
         Application.Quit();
     }
     public void PlayGame()
     {
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene(1);
     }
 
 }
