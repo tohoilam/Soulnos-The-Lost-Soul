@@ -7950,6 +7950,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4794210478291054343, guid: be41d22e215a3b34189dc480cf7b686a, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 674482581
+      objectReference: {fileID: 0}
     - target: {fileID: 4794210478291054458, guid: be41d22e215a3b34189dc480cf7b686a, type: 3}
       propertyPath: m_Name
       value: PauseMenu
