@@ -15,5 +15,25 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
-
+    public void loadStage1()
+    {
+        if (stageCleared >= 1)
+        {
+            SceneManager.LoadScene(1);
+        }
+    }
+    public void loadStage2()
+    {
+        if (stageCleared >= 2)
+        {
+            SceneManager.LoadScene(2);
+        }
+    }
+    public void loadStage3()
+    {
+        if (stageCleared >= 3)
+        {
+            SceneManager.LoadScene(3);
+        }
+    }
 }
