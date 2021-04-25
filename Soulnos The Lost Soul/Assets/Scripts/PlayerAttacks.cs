@@ -45,7 +45,7 @@ public class PlayerAttacks : MonoBehaviour
     private float attackTime;
     private bool isAttackAllowed;
     private bool isExplosionActivate;
-
+    
 
     // Start is called before the first frame update
     void Start()
@@ -56,10 +56,18 @@ public class PlayerAttacks : MonoBehaviour
         playerMovementControlScript = this.GetComponent<PlayerMovementControl>();
         playerStatistics = this.GetComponent<PlayerStatistics>();
         isSwordTriggerAllowed = false;
-        isAttackAllowed = true;
-        GameObject.Find("RealityPlayerSwordAttackRight").GetComponent<CircleCollider2D>().enabled = false;
-        GameObject.Find("RealityPlayerSwordAttackLeft").GetComponent<CircleCollider2D>().enabled = false;
+        isAttackAllowed = true;        
         isVoid = playerMovementControlScript.negativeGravity;
+        if (!isVoid)
+        {
+            this.transform.Find("RealityPlayerSwordAttackRight").GetComponent<CircleCollider2D>().enabled = false;
+            this.transform.Find("RealityPlayerSwordAttackLeft").GetComponent<CircleCollider2D>().enabled = false;
+        }
+        else
+        {
+            this.transform.Find("VoidPlayerSwordAttackRight").GetComponent<CircleCollider2D>().enabled = false;
+            this.transform.Find("VoidPlayerSwordAttackLeft").GetComponent<CircleCollider2D>().enabled = false;
+        }
         rangeCastOffset = isVoid ? 0.6f : 0.0f;
         basicAttackCooldownDuration = 0.6f;
         attackTime = -basicAttackCooldownDuration;
@@ -156,10 +164,16 @@ public class PlayerAttacks : MonoBehaviour
     public void SowrdFinishAttackAnimation()
     {
         playerMovementControlScript.isMovementAllowed = true;
-        GameObject.Find("RealityPlayerSwordAttackRight").GetComponent<CircleCollider2D>().enabled = false;
-        GameObject.Find("VoidPlayerSwordAttackRight").GetComponent<CircleCollider2D>().enabled = false;
-        GameObject.Find("RealityPlayerSwordAttackLeft").GetComponent<CircleCollider2D>().enabled = false;
-        GameObject.Find("VoidPlayerSwordAttackLeft").GetComponent<CircleCollider2D>().enabled = false;
+        if (!isVoid)
+        {
+            this.transform.Find("RealityPlayerSwordAttackRight").GetComponent<CircleCollider2D>().enabled = false;
+            this.transform.Find("RealityPlayerSwordAttackLeft").GetComponent<CircleCollider2D>().enabled = false;
+        }
+        else
+        {
+            this.transform.Find("VoidPlayerSwordAttackRight").GetComponent<CircleCollider2D>().enabled = false;
+            this.transform.Find("VoidPlayerSwordAttackLeft").GetComponent<CircleCollider2D>().enabled = false;
+        }
     }
 
     public void TriggerSowrdCollision()
@@ -169,11 +183,11 @@ public class PlayerAttacks : MonoBehaviour
         {
             if (isVoid)
             {
-                GameObject.Find("VoidPlayerSwordAttackRight").GetComponent<CircleCollider2D>().enabled = true;
+                this.transform.Find("VoidPlayerSwordAttackRight").GetComponent<CircleCollider2D>().enabled = true;
             }
             else
             {
-                GameObject.Find("RealityPlayerSwordAttackRight").GetComponent<CircleCollider2D>().enabled = true;
+                this.transform.Find("RealityPlayerSwordAttackRight").GetComponent<CircleCollider2D>().enabled = true;
             }
             
             
@@ -182,11 +196,11 @@ public class PlayerAttacks : MonoBehaviour
         {
             if (isVoid)
             {
-                GameObject.Find("VoidPlayerSwordAttackLeft").GetComponent<CircleCollider2D>().enabled = true;
+                this.transform.Find("VoidPlayerSwordAttackLeft").GetComponent<CircleCollider2D>().enabled = true;
             }
             else
             {
-                GameObject.Find("RealityPlayerSwordAttackLeft").GetComponent<CircleCollider2D>().enabled = true;
+                this.transform.Find("RealityPlayerSwordAttackLeft").GetComponent<CircleCollider2D>().enabled = true;
             }
             
             
