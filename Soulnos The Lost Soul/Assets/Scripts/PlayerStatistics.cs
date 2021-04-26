@@ -18,8 +18,9 @@ public class PlayerStatistics : MonoBehaviour
     public float maxHealth;
     public float damageDealt;
 
+
     private AttackModeClass.AttackMode currentAttackMode;
-    private float currentHealth;
+    public float currentHealth;
     private GameObject HealthBar;
     private GameObject CooldownBar;
     private float healthBarLength;
@@ -214,9 +215,17 @@ public class PlayerStatistics : MonoBehaviour
         }
     }
 
-    public void GotAttacked()
+    public void GotAttacked(float specialDamageDealt = 0)
     {
-        currentHealth -= damageDealt;
+        if (specialDamageDealt == 0)
+        {
+            currentHealth -= damageDealt;
+        }
+        else
+        {
+            currentHealth -= specialDamageDealt;
+        }
+        
         if (currentHealth < 0)
         {
             currentHealth = 0;
@@ -236,6 +245,13 @@ public class PlayerStatistics : MonoBehaviour
             
         }
         
+    }
+
+    public void RecoverHealth()
+    {
+        currentHealth = maxHealth;
+        this.HealthBar.transform.localScale = new Vector3(this.healthBarLength * (currentHealth / maxHealth), this.HealthBar.transform.localScale.y, this.HealthBar.transform.localScale.z);
+        this.HealthBar.transform.localPosition = new Vector3((1 - (currentHealth / maxHealth)) * -2, 0, 0);
     }
 
     public void PlayerDie(float destroyDelayTime = 0f)

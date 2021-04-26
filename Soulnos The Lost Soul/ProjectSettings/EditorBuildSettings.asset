@@ -9,9 +9,18 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 4c031028ed5ed8844b6643e9e9936195
   - enabled: 1
-    path: Assets/Scenes/MainScene.unity
-    guid: a2b2957b7bae744db822c0e827bc3931
+    path: Assets/Scenes/elvis.unity
+    guid: bb503abc7ac4ff14c922c61ef5f6e85e
   - enabled: 1
-    path: Assets/Scenes/OldMainScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/elvis2.unity
+    guid: d9f5a853b7a25a642a7a486a3cffe828
+  - enabled: 1
+    path: Assets/Scenes/alex.unity
+    guid: 5c122a350b0141e4f96e14f2511ad38a
+  - enabled: 1
+    path: Assets/Scenes/Cpy.unity
+    guid: 104c182d0f69e74469d75618cacb5b13
+  - enabled: 1
+    path: Assets/Scenes/fung.unity
+    guid: 5cb0bd4285124ad4abbf9435219e4726
   m_configObjects: {}

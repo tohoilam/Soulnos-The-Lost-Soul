@@ -49,6 +49,7 @@ MonoBehaviour:
   clearedText: {fileID: 977574799282736227, guid: 172ec15b0cbb24ef9b8c23d315b54077, type: 3}
   textDelayTime: 4
   goalReachedCount: 0
+  goalRequired: 2
 --- !u!1001 &1920618428752269011
 PrefabInstance:
   m_ObjectHideFlags: 0

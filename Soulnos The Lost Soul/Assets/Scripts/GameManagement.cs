@@ -8,6 +8,7 @@ public class GameManagement : MonoBehaviour
     public GameObject clearedText;
     public float textDelayTime;
     public int goalReachedCount;
+    public int goalRequired;
 
     private bool isPlayerDeath;
     private float deathScreenDelayTime;
@@ -50,7 +51,7 @@ public class GameManagement : MonoBehaviour
             }
         }
 
-        if (!isCleared && goalReachedCount == 2)
+        if (!isCleared && goalReachedCount == goalRequired)
         {
             isCleared = true;
             clearedTime = Time.time;
