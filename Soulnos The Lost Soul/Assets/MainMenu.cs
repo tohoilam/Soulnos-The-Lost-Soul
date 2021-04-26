@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {   
     public static int stageCleared = 1;
-
+    public GameObject loadMenuUI;
+    public GameObject notClearedText;
     public void QuitGame()
     {
         Application.Quit();
@@ -21,6 +22,11 @@ public class MainMenu : MonoBehaviour
         {
             SceneManager.LoadScene(1);
         }
+        else
+        {
+            loadMenuUI.SetActive(false);
+            notClearedText.SetActive(true);
+        }
     }
     public void loadStage2()
     {
@@ -28,12 +34,22 @@ public class MainMenu : MonoBehaviour
         {
             SceneManager.LoadScene(2);
         }
+        else
+        {
+            loadMenuUI.SetActive(false);
+            notClearedText.SetActive(true);
+        }
     }
     public void loadStage3()
     {
         if (stageCleared >= 3)
         {
             SceneManager.LoadScene(3);
+        }
+        else
+        {
+            loadMenuUI.SetActive(false);
+            notClearedText.SetActive(true);
         }
     }
 }
