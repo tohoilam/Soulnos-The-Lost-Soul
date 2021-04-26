@@ -3583,6 +3583,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3351482578928392375, guid: ace10d239e25f40f2b4091a74872a1b2, type: 3}
+      propertyPath: textDelayTime
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 480756537646897783, guid: ace10d239e25f40f2b4091a74872a1b2, type: 3}
       propertyPath: m_LocalPosition.y
       value: 2.71
@@ -13639,7 +13643,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7351449661384682901, guid: 585e0a9ae25df2343841368f094d149a, type: 3}
       propertyPath: firetime
-      value: 2000
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7351449661384682901, guid: 585e0a9ae25df2343841368f094d149a, type: 3}
       propertyPath: flipDirection
