@@ -73,7 +73,7 @@ public class Goal : MonoBehaviour
             if (((1 << collision.gameObject.layer) & groundLayerMask) != 0 && collision.gameObject.GetComponent<PlayerMovementControl>().negativeGravity == isVoidGate)
             {
                 playerObject = collision.gameObject;
-                playerObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
+                playerObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
                 playerObject.GetComponent<PlayerMovementControl>().enabled = false;
                 playerObject.GetComponent<PlayerAttacks>().enabled = false;
                 playerObject.GetComponent<PlayerStatistics>().enabled = false;
