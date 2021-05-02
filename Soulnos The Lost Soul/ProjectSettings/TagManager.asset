@@ -69,6 +69,9 @@ TagManager:
   - name: UI
     uniqueID: 1775306163
     locked: 0
+  - name: Dust
+    uniqueID: 1883585669
+    locked: 0
   - name: PauseMenu
     uniqueID: 674482581
     locked: 0
