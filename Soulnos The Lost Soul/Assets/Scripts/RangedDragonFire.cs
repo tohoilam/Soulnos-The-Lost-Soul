@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class RangedDragonFire : MonoBehaviour
 {
-    public int firetime;
+    public float firetime;
     public bool negativeGravity;
     public bool flipDirection;
     public GameObject DragonFire;
     private int counter;
+    private float LastFireTime;
 
     [SerializeField] private LayerMask groundLayerMask;
 
@@ -38,20 +40,27 @@ public class RangedDragonFire : MonoBehaviour
             gravityScale = 1;
         }
         this.rigidbody.gravityScale *= gravityScale;
+        LastFireTime = Time.time;
     }
 
 
     void Update()
     {
-        counter -= 1;
-        if (counter < 0){
-            animator.SetTrigger("Fire");
-            int direction = (spriteRenderer.flipX) ? -1 : 1;
-            GameObject newObject = Instantiate(DragonFire, this.transform.position + new Vector3(direction*0.5f, -0.3f + rangeCastOffset, 0), Quaternion.identity) as GameObject;
-            newObject.GetComponent<Rigidbody2D>().velocity = new Vector2(3 * direction, 0);
-            counter = firetime;
-
+        if (Time.time > LastFireTime + firetime)
+        {
+            fire();
         }
+    }
+
+    void fire()
+    {
+        animator.SetTrigger("Fire");
+        int direction = (spriteRenderer.flipX) ? -1 : 1;
+        GameObject newObject = Instantiate(DragonFire, this.transform.position + new Vector3(direction * 0.5f, -0.3f + rangeCastOffset, 0), Quaternion.identity) as GameObject;
+        newObject.GetComponent<Rigidbody2D>().velocity = new Vector2(3 * direction, 0);
+        LastFireTime = Time.time;
+        
+
     }
 
 
