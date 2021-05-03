@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.SceneManagement;
 
-public class VideoStopper : MonoBehaviour
+public class FinalVideo : MonoBehaviour
 {
     public VideoPlayer video;
     void Awake()
@@ -16,6 +16,6 @@ public class VideoStopper : MonoBehaviour
     void VideoFinished(VideoPlayer player)
     {
         player.Stop();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(0);
     }
 }

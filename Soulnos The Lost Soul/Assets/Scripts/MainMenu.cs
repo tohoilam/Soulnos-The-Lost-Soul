@@ -32,7 +32,7 @@ public class MainMenu : MonoBehaviour
     {
         if (stageCleared >= 2)
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(3);
         }
         else
         {
@@ -44,7 +44,7 @@ public class MainMenu : MonoBehaviour
     {
         if (stageCleared >= 3)
         {
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(4);
         }
         else
         {
@@ -56,7 +56,7 @@ public class MainMenu : MonoBehaviour
     {
         if (stageCleared >= 4)
         {
-            SceneManager.LoadScene(4);
+            SceneManager.LoadScene(6);
         }
         else
         {
@@ -68,7 +68,7 @@ public class MainMenu : MonoBehaviour
     {
         if (stageCleared >= 5)
         {
-            SceneManager.LoadScene(5);
+            SceneManager.LoadScene(7);
         }
         else
         {
@@ -80,7 +80,7 @@ public class MainMenu : MonoBehaviour
     {
         if (stageCleared >= 6)
         {
-            SceneManager.LoadScene(6);
+            SceneManager.LoadScene(9);
         }
         else
         {
@@ -92,7 +92,7 @@ public class MainMenu : MonoBehaviour
     {
         if (stageCleared >= 7)
         {
-            SceneManager.LoadScene(7);
+            SceneManager.LoadScene(10);
         }
         else
         {
@@ -104,7 +104,7 @@ public class MainMenu : MonoBehaviour
     {
         if (stageCleared >= 8)
         {
-            SceneManager.LoadScene(8);
+            SceneManager.LoadScene(12);
         }
         else
         {
@@ -116,7 +116,19 @@ public class MainMenu : MonoBehaviour
     {
         if (stageCleared >= 9)
         {
-            SceneManager.LoadScene(9);
+            SceneManager.LoadScene(13);
+        }
+        else
+        {
+            loadMenuUI.SetActive(false);
+            notClearedText.SetActive(true);
+        }
+    }
+    public void loadStageEND()
+    {
+        if (stageCleared >= 10)
+        {
+            SceneManager.LoadScene(15);
         }
         else
         {
