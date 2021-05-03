@@ -1563,7 +1563,7 @@ GameObject:
   m_Component:
   - component: {fileID: 151376581}
   - component: {fileID: 151376582}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mainlev_build_70 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1822,7 +1822,7 @@ GameObject:
   m_Component:
   - component: {fileID: 167505411}
   - component: {fileID: 167505412}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mainlev_build_70
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2404,7 +2404,7 @@ GameObject:
   m_Component:
   - component: {fileID: 184400231}
   - component: {fileID: 184400232}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mainlev_build_70 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3527,7 +3527,7 @@ GameObject:
   m_Component:
   - component: {fileID: 309433503}
   - component: {fileID: 309433504}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mainlev_build_70
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4064,7 +4064,7 @@ GameObject:
   m_Component:
   - component: {fileID: 326741418}
   - component: {fileID: 326741419}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mainlev_build_70 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7591,7 +7591,7 @@ GameObject:
   m_Component:
   - component: {fileID: 563079279}
   - component: {fileID: 563079280}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mainlev_build_70 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9667,7 +9667,7 @@ GameObject:
   m_Component:
   - component: {fileID: 732024814}
   - component: {fileID: 732024815}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mainlev_build_70 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12553,7 +12553,7 @@ GameObject:
   m_Component:
   - component: {fileID: 957274678}
   - component: {fileID: 957274679}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mainlev_build_70 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14656,7 +14656,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1110606842}
   - component: {fileID: 1110606843}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mainlev_build_70 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15206,7 +15206,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1150427706}
   - component: {fileID: 1150427707}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mainlev_build_70 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16690,7 +16690,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1257789739}
   - component: {fileID: 1257789740}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mainlev_build_70 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17166,7 +17166,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1345827312}
   - component: {fileID: 1345827313}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mainlev_build_70 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19233,7 +19233,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1468299906}
   - component: {fileID: 1468299907}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mainlev_build_70 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20543,7 +20543,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1524961112}
   - component: {fileID: 1524961113}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mainlev_build_70
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20791,7 +20791,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1530214346}
   - component: {fileID: 1530214347}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mainlev_build_70 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22025,7 +22025,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1656630052}
   - component: {fileID: 1656630053}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mainlev_build_70 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22503,7 +22503,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1682050922}
   - component: {fileID: 1682050923}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mainlev_build_70
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24517,7 +24517,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1805764400}
   - component: {fileID: 1805764401}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mainlev_build_70 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24955,86 +24955,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1838673606
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1838673609}
-  - component: {fileID: 1838673608}
-  - component: {fileID: 1838673607}
-  m_Layer: 0
-  m_Name: Story 5
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1838673607
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1838673606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e1a58b2f5f0acc4b80b0bf8a6c3a73a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  video: {fileID: 1838673608}
---- !u!328 &1838673608
-VideoPlayer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1838673606}
-  m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 545c78be591db4546a3491750337da99, type: 3}
-  m_TargetCameraAlpha: 1
-  m_TargetCamera3DLayout: 0
-  m_TargetCamera: {fileID: 995079230}
-  m_TargetTexture: {fileID: 0}
-  m_TimeReference: 0
-  m_TargetMaterialRenderer: {fileID: 0}
-  m_TargetMaterialProperty: _MainTex
-  m_RenderMode: 1
-  m_AspectRatio: 2
-  m_DataSource: 0
-  m_PlaybackSpeed: 1
-  m_AudioOutputMode: 2
-  m_TargetAudioSources:
-  - {fileID: 0}
-  m_DirectAudioVolumes:
-  - 1
-  m_Url: 
-  m_EnabledAudioTracks: 01
-  m_DirectAudioMutes: 00
-  m_ControlledAudioTrackCount: 1
-  m_PlayOnAwake: 1
-  m_SkipOnDrop: 1
-  m_Looping: 0
-  m_WaitForFirstFrame: 1
-  m_FrameReadyEventEnabled: 0
-  m_VideoShaders: []
---- !u!4 &1838673609
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1838673606}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1840784203
 GameObject:
   m_ObjectHideFlags: 0
@@ -25487,7 +25407,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1855599004}
   - component: {fileID: 1855599005}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mainlev_build_70
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27276,7 +27196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2044874324}
   - component: {fileID: 2044874325}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mainlev_build_70 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

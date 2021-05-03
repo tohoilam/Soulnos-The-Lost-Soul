@@ -3073,7 +3073,7 @@ GameObject:
   m_Component:
   - component: {fileID: 197735571}
   - component: {fileID: 197735572}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mainlev_build_92
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4884,7 +4884,7 @@ GameObject:
   m_Component:
   - component: {fileID: 304029548}
   - component: {fileID: 304029549}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mainlev_build_89 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8386,7 +8386,7 @@ GameObject:
   m_Component:
   - component: {fileID: 564533077}
   - component: {fileID: 564533078}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mainlev_build_89 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8714,7 +8714,7 @@ GameObject:
   m_Component:
   - component: {fileID: 577835289}
   - component: {fileID: 577835290}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mainlev_build_89 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9231,7 +9231,7 @@ GameObject:
   m_Component:
   - component: {fileID: 610841310}
   - component: {fileID: 610841311}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mainlev_build_122
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12721,7 +12721,7 @@ GameObject:
   m_Component:
   - component: {fileID: 900288468}
   - component: {fileID: 900288469}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mainlev_build_89 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19796,6 +19796,86 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1341497137
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1341497140}
+  - component: {fileID: 1341497139}
+  - component: {fileID: 1341497138}
+  m_Layer: 0
+  m_Name: Story 5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1341497138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341497137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e1a58b2f5f0acc4b80b0bf8a6c3a73a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  video: {fileID: 1341497139}
+--- !u!328 &1341497139
+VideoPlayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341497137}
+  m_Enabled: 1
+  m_VideoClip: {fileID: 32900000, guid: 545c78be591db4546a3491750337da99, type: 3}
+  m_TargetCameraAlpha: 1
+  m_TargetCamera3DLayout: 0
+  m_TargetCamera: {fileID: 1338319641}
+  m_TargetTexture: {fileID: 0}
+  m_TimeReference: 0
+  m_TargetMaterialRenderer: {fileID: 0}
+  m_TargetMaterialProperty: _MainTex
+  m_RenderMode: 1
+  m_AspectRatio: 2
+  m_DataSource: 0
+  m_PlaybackSpeed: 1
+  m_AudioOutputMode: 2
+  m_TargetAudioSources:
+  - {fileID: 0}
+  m_DirectAudioVolumes:
+  - 1
+  m_Url: 
+  m_EnabledAudioTracks: 00
+  m_DirectAudioMutes: 00
+  m_ControlledAudioTrackCount: 1
+  m_PlayOnAwake: 1
+  m_SkipOnDrop: 1
+  m_Looping: 0
+  m_WaitForFirstFrame: 1
+  m_FrameReadyEventEnabled: 0
+  m_VideoShaders: []
+--- !u!4 &1341497140
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341497137}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1345500225
 GameObject:
   m_ObjectHideFlags: 0
@@ -20438,7 +20518,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1408369463}
   - component: {fileID: 1408369464}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mainlev_build_82
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20801,7 +20881,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1432653488}
   - component: {fileID: 1432653489}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mainlev_build_89 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21489,7 +21569,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1466557986}
   - component: {fileID: 1466557987}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mainlev_build_89 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23215,7 +23295,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1566522064}
   - component: {fileID: 1566522065}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mainlev_build_93
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25866,7 +25946,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1755330080}
   - component: {fileID: 1755330081}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mainlev_build_89
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28077,7 +28157,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1997912278}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
