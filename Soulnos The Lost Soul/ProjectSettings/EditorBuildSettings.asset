@@ -30,9 +30,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Cpy.unity
     guid: 104c182d0f69e74469d75618cacb5b13
   - enabled: 1
-    path: Assets/Scenes/alex.unity
-    guid: 5c122a350b0141e4f96e14f2511ad38a
-  - enabled: 1
     path: Assets/Scenes/alex2.unity
     guid: 84a4ed743920c4ddebca91fa3418c673
+  - enabled: 1
+    path: Assets/Scenes/alex.unity
+    guid: 5c122a350b0141e4f96e14f2511ad38a
   m_configObjects: {}
