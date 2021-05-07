@@ -33,7 +33,7 @@ EditorBuildSettings:
     path: Assets/Scenes/cpy2.unity
     guid: 98ad7e53c0a8b45cf97c86e683b7f813
   - enabled: 1
-    path: Assets/Scenes/ray.unity
+    path: Assets/Scenes/ray1.unity
     guid: 5cfb35fffdefd124ab6cc289f1b0274d
   - enabled: 1
     path: Assets/Scenes/story4.unity
