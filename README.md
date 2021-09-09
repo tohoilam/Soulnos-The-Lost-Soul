@@ -1,4 +1,4 @@
-# Soulnos-The-Lost-Soul
+# Soulnos: The Lost Soul
 
 ## Overview
 
