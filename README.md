@@ -16,6 +16,8 @@ In addition, four kinds of boosters may exist in each stage to assist the player
 
 **[Google Drive Link](https://drive.google.com/drive/folders/1hUlxBkJ4jiFgbI7FFLQiHzMZNXJxdmGj?usp=sharing)**
 
+**[GitHub Link (Source Files)](https://github.com/tohoilam/Soulnos-The-Lost-Soul)**
+
 ### Mac Installation
 
 1. Download and unzip "Soulnos App (Mac ver).zip" from above link
